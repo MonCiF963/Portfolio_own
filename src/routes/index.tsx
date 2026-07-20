@@ -1,24 +1,53 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Toaster } from "@/components/ui/sonner";
+import { I18nProvider } from "@/lib/i18n";
+import { AnimatedBackground } from "@/components/site/AnimatedBackground";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { TrustedTech } from "@/components/site/TrustedTech";
+import { Services } from "@/components/site/Services";
+import { Portfolio } from "@/components/site/Portfolio";
+import { WhyChooseUs } from "@/components/site/WhyChooseUs";
+import { Process } from "@/components/site/Process";
+import { Testimonials } from "@/components/site/Testimonials";
+import { About } from "@/components/site/About";
+import { Pricing } from "@/components/site/Pricing";
+import { FAQ } from "@/components/site/FAQ";
+import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
+import { BackToTop } from "@/components/site/BackToTop";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <I18nProvider>
+      <div className="relative min-h-screen overflow-x-hidden">
+        <AnimatedBackground />
+        <ScrollProgress />
+        <Navbar />
+        <main>
+          <Hero />
+          <TrustedTech />
+          <Services />
+          <Portfolio />
+          <WhyChooseUs />
+          <Process />
+          <Testimonials />
+          <About />
+          <Pricing />
+          <FAQ />
+          <Contact />
+        </main>
+        <Footer />
+        <BackToTop />
+        <WhatsAppButton />
+        <Toaster position="top-center" />
+      </div>
+    </I18nProvider>
   );
 }

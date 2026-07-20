@@ -77,14 +77,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Nova.dev — Premium Web Design & Development Studio" },
+      {
+        name: "description",
+        content:
+          "Nova.dev is a premium freelance web design and development studio building fast, modern, conversion-focused websites for businesses.",
+      },
+      { name: "theme-color", content: "#0b1220" },
+      { property: "og:site_name", content: "Nova.dev" },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "Nova.dev — Premium Web Design & Development" },
+      {
+        property: "og:description",
+        content: "Custom, high-end websites and web apps that convert visitors into clients.",
+      },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -92,6 +99,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Nova.dev",
+          description:
+            "Premium freelance web design and development studio building modern, fast, conversion-focused websites.",
+          url: "/",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
