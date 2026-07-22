@@ -6,35 +6,25 @@ import { useI18n } from "@/lib/i18n";
 const plans = [
   {
     name: { ar: "صفحة هبوط", fr: "Landing Page" },
-    price: "25 000",
     features: {
-      ar: ["تصميم مخصص", "صفحة واحدة", "متجاوب بالكامل", "SEO أساسي", "تسليم خلال أسبوع"],
-      fr: ["Design sur mesure", "Une page", "100% responsive", "SEO de base", "Livré en 1 semaine"],
+      ar: ["تصميم مخصّص من صفحة واحدة", "متجاوب على كل الأجهزة", "أساسيات SEO التقني", "نموذج تواصل مدمج", "تسليم سريع"],
+      fr: ["Page unique sur mesure", "100% responsive", "Bases du SEO technique", "Formulaire de contact intégré", "Livraison rapide"],
     },
   },
   {
-    name: { ar: "موقع أعمال", fr: "Site Business" },
-    price: "60 000",
+    name: { ar: "موقع تعريفي للشركة", fr: "Site vitrine / entreprise" },
     popular: true,
     features: {
-      ar: ["حتى 6 صفحات", "تصميم مخصص", "لوحة إدارة", "SEO متقدم", "نموذج تواصل", "تسليم خلال 2-3 أسابيع"],
-      fr: ["Jusqu'à 6 pages", "Design sur mesure", "Panneau admin", "SEO avancé", "Formulaire de contact", "Livré en 2-3 semaines"],
+      ar: ["حتى عدة صفحات مخصّصة", "تصميم متوافق مع هويتك", "بنية محسّنة لمحركات البحث", "نماذج وتكاملات أساسية", "تدريب على إدارة المحتوى"],
+      fr: ["Plusieurs pages sur mesure", "Design aligné à votre identité", "Structure optimisée SEO", "Formulaires & intégrations de base", "Prise en main incluse"],
     },
   },
   {
-    name: { ar: "متجر إلكتروني", fr: "E-commerce" },
-    price: "120 000",
+    name: { ar: "تطبيق ويب مخصّص", fr: "Application web sur mesure" },
+    onRequest: true,
     features: {
-      ar: ["منتجات غير محدودة", "بوابة دفع", "إدارة الطلبات", "تصميم مخصص", "SEO متقدم", "تدريب على الاستخدام"],
-      fr: ["Produits illimités", "Passerelle de paiement", "Gestion commandes", "Design sur mesure", "SEO avancé", "Formation incluse"],
-    },
-  },
-  {
-    name: { ar: "تطبيق مخصص", fr: "App sur mesure" },
-    price: "—",
-    features: {
-      ar: ["استشارة مجانية", "تحليل معمق", "بنية قابلة للتطوير", "لوحة تحكم مخصصة", "تكاملات API", "دعم مستمر"],
-      fr: ["Consultation gratuite", "Analyse approfondie", "Architecture scalable", "Dashboard sur mesure", "Intégrations API", "Support continu"],
+      ar: ["استشارة أولية لفهم المتطلبات", "بنية قابلة للتطوير", "لوحة تحكم مخصّصة", "تكاملات API متقدّمة", "متابعة بعد الإطلاق"],
+      fr: ["Cadrage initial approfondi", "Architecture scalable", "Interface d'administration dédiée", "Intégrations API avancées", "Suivi post-lancement"],
     },
   },
 ];
@@ -45,7 +35,7 @@ export function Pricing() {
     <section id="pricing" className="relative py-24">
       <div className="mx-auto max-w-7xl px-4">
         <SectionHeader eyebrow={t("pricing.eyebrow")} title={t("pricing.title")} subtitle={t("pricing.subtitle")} />
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((p, i) => (
             <motion.div
               key={i}
@@ -64,10 +54,13 @@ export function Pricing() {
               )}
               <h3 className="text-lg font-semibold">{p.name[lang]}</h3>
               <div className="mt-4">
-                <div className="text-xs text-muted-foreground">{t("pricing.startFrom")}</div>
+                <div className="text-xs text-muted-foreground">
+                  {p.onRequest ? " " : t("pricing.startFrom")}
+                </div>
                 <div className="mt-1 flex items-baseline gap-1">
-                  <span className="font-display text-4xl font-bold text-gradient">{p.price}</span>
-                  {p.price !== "—" && <span className="text-sm text-muted-foreground">{t("pricing.currency")}</span>}
+                  <span className="font-display text-3xl font-bold text-gradient">
+                    {p.onRequest ? t("pricing.onRequest") : t("pricing.startFrom")}
+                  </span>
                 </div>
               </div>
               <ul className="mt-6 flex-1 space-y-3 text-sm">

@@ -10,7 +10,6 @@ import { Services } from "@/components/site/Services";
 import { Portfolio } from "@/components/site/Portfolio";
 import { WhyChooseUs } from "@/components/site/WhyChooseUs";
 import { Process } from "@/components/site/Process";
-import { Testimonials } from "@/components/site/Testimonials";
 import { About } from "@/components/site/About";
 import { Pricing } from "@/components/site/Pricing";
 import { FAQ } from "@/components/site/FAQ";
@@ -37,7 +36,6 @@ function Index() {
           <Portfolio />
           <WhyChooseUs />
           <Process />
-          <Testimonials />
           <About />
           <Pricing />
           <FAQ />

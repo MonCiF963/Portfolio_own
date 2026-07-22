@@ -1,15 +1,39 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Search, Palette, Code2, Bug, Rocket } from "lucide-react";
+import { MessageCircle, ClipboardList, Palette, Code2, Bug, Rocket } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { useI18n } from "@/lib/i18n";
 
 const steps = [
-  { icon: MessageCircle, ar: "تواصل معنا", fr: "Prise de contact" },
-  { icon: Search, ar: "تحليل المشروع", fr: "Analyse du projet" },
-  { icon: Palette, ar: "تصميم الواجهة", fr: "Design UI/UX" },
-  { icon: Code2, ar: "تطوير الموقع", fr: "Développement" },
-  { icon: Bug, ar: "الاختبار", fr: "Tests & QA" },
-  { icon: Rocket, ar: "إطلاق الموقع", fr: "Lancement" },
+  {
+    icon: MessageCircle,
+    ar: { title: "فهم احتياجاتك", desc: "نبدأ بجلسة استماع لفهم نشاطك، جمهورك، وأهدافك من الموقع. لا نقترح حلولاً قبل أن نفهم السياق." },
+    fr: { title: "Compréhension du besoin", desc: "Un premier échange pour cerner votre activité, votre audience et vos objectifs. Aucune proposition avant d'avoir bien compris." },
+  },
+  {
+    icon: ClipboardList,
+    ar: { title: "تخطيط المشروع", desc: "نحدّد نطاق المشروع، الصفحات، الوظائف، والجدول الزمني — بشكل واضح ومكتوب قبل بدء أي عمل." },
+    fr: { title: "Cadrage & planification", desc: "Nous définissons le périmètre, les pages, les fonctionnalités et le calendrier — clairement documenté avant tout démarrage." },
+  },
+  {
+    icon: Palette,
+    ar: { title: "تصميم الواجهة والتجربة", desc: "نصمّم واجهات نظيفة ومنسجمة مع هوية علامتك، مع تركيز حقيقي على تجربة المستخدم على الحاسوب والجوال." },
+    fr: { title: "Design UI / UX", desc: "Des interfaces sobres et cohérentes avec votre identité, pensées pour l'expérience utilisateur sur ordinateur comme sur mobile." },
+  },
+  {
+    icon: Code2,
+    ar: { title: "التطوير", desc: "نبني الموقع بكود نظيف وحديث، سريع، وقابل للصيانة على المدى الطويل." },
+    fr: { title: "Développement", desc: "Nous construisons le site avec un code propre, moderne, performant et maintenable dans le temps." },
+  },
+  {
+    icon: Bug,
+    ar: { title: "الاختبار والتحسين", desc: "نراجع كل شيء: الأداء، التوافق مع المتصفحات والأجهزة، الوصولية، وأساسيات SEO التقني." },
+    fr: { title: "Tests & optimisation", desc: "Nous vérifions tout : performance, compatibilité navigateurs et appareils, accessibilité et bases du SEO technique." },
+  },
+  {
+    icon: Rocket,
+    ar: { title: "الإطلاق والتسليم", desc: "نُطلق الموقع، نُسلّمك الوصول الكامل، ونرافقك في الأيام الأولى للتأكد من انطلاقة سليمة." },
+    fr: { title: "Mise en ligne & livraison", desc: "Nous mettons le site en ligne, vous transmettons tous les accès, et vous accompagnons dans les premiers jours." },
+  },
 ];
 
 export function Process() {
@@ -41,11 +65,9 @@ export function Process() {
                     </span>
                   </div>
                   <div className="glass flex-1 rounded-2xl p-5">
-                    <h3 className="text-lg font-semibold">{lang === "ar" ? s.ar : s.fr}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {lang === "ar"
-                        ? "مرحلة أساسية من رحلة تنفيذ مشروعك بجودة عالية."
-                        : "Une étape clé de la réalisation de votre projet."}
+                    <h3 className="text-lg font-semibold">{s[lang].title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                      {s[lang].desc}
                     </p>
                   </div>
                 </div>
