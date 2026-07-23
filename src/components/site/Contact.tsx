@@ -16,11 +16,11 @@ export function Contact() {
   const { t } = useI18n();
 
   const channels: Channel[] = [
-    { icon: MessageCircle, label: t("contact.whatsapp"), value: "+213 558619475", href: "https://wa.me/213558619475", accent: "from-emerald-500 to-teal-500", external: true },
+    { icon: MessageCircle, label: t("contact.whatsapp"), value: "BMo.Dv", href: "https://wa.me/213558619475", accent: "from-emerald-500 to-teal-500", external: true },
     { icon: Mail, label: t("contact.email_label"), value: "hello@modev.dev", href: "mailto:hello@modev.dev", accent: "from-purple-500 via-blue-500 to-emerald-400" },
-    { icon: Facebook, label: "Facebook", value: "@modev", href: "#", accent: "from-blue-500 to-emerald-500", external: true },
+  //{ icon: Facebook, label: "Facebook", value: "@modev", href: "#", accent: "from-blue-500 to-emerald-500", external: true },
     { icon: Instagram, label: "Instagram", value: "MoDev", href: "https://www.instagram.com/bymo.dev/?utm_source=ig_web_button_share_sheet", accent: "from-pink-500 via-rose-500 to-orange-500", external: true },
-    { icon: Linkedin, label: "LinkedIn", value: "MoDev", href: "#", accent: "from-blue-500 to-purple-600", external: true },
+  //{ icon: Linkedin, label: "LinkedIn", value: "MoDev", href: "#", accent: "from-blue-500 to-purple-600", external: true },
     { icon: Github, label: "GitHub", value: "MoDev", href: "https://github.com/MonCiF963", accent: "from-slate-500 to-slate-800", external: true },
   ];
 

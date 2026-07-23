@@ -30,7 +30,7 @@ const shot = (seed: string) =>
 export const projects: Project[] = [
   {
     id: "aurora-corp",
-    title: { ar: "موقع شركة أورورا", fr: "Site Corporate Aurora" },
+    title: { ar: "موقع شركة ", fr: "Site Corporate" },
     description: {
       ar: "موقع تعريفي لشركة استشارات، صُمّم لتقديم خدماتها بوضوح وبناء ثقة الزوّار من أول انطباع.",
       fr: "Site vitrine pour un cabinet de conseil — pensé pour présenter clairement ses services et inspirer confiance dès la première visite.",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
   },
   {
     id: "dr-amrani",
-    title: { ar: "عيادة الدكتور العمراني", fr: "Cabinet Dr. Amrani" },
+    title: { ar: "عيادة الدكتور ", fr: "Cabinet Dr.A" },
     description: {
       ar: "موقع طبّي لعيادة خاصّة، يهدف إلى تعريف المرضى بالخدمات وتسهيل حجز المواعيد أونلاين.",
       fr: "Site pour un cabinet médical privé — présenter les spécialités et permettre aux patients de prendre rendez-vous en ligne.",

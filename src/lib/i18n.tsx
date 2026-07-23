@@ -142,7 +142,7 @@ const translations: Record<Lang, Dict> = {
     "pricing.eyebrow": "Tarifs",
     "pricing.title": "Des offres pensées selon la taille de votre projet",
     "pricing.subtitle": "Chaque projet est unique. Contactez-moi et j'établis un devis personnalisé après avoir cerné vos besoins.",
-    "pricing.startFrom": "Devis personnalisé",
+    "pricing.startFrom": "30000DA",
     "pricing.onRequest": "Sur devis",
     "pricing.currency": "",
     "pricing.getStarted": "Demander un devis",
