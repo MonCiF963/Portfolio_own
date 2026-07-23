@@ -43,7 +43,7 @@ export function Process() {
       <div className="mx-auto max-w-7xl px-4">
         <SectionHeader eyebrow={t("process.eyebrow")} title={t("process.title")} subtitle={t("process.subtitle")} />
         <div className="relative">
-          <div className="absolute inset-y-0 start-6 w-px bg-gradient-to-b from-blue-500/60 via-indigo-500/30 to-transparent md:start-1/2 md:-translate-x-1/2 rtl:md:translate-x-1/2" />
+          <div className="absolute inset-y-0 start-6 w-px bg-gradient-to-b from-purple-500/60 via-indigo-500/30 to-transparent md:start-1/2 md:-translate-x-1/2 rtl:md:translate-x-1/2" />
           <div className="space-y-8">
             {steps.map((s, i) => (
               <motion.div
@@ -58,9 +58,9 @@ export function Process() {
               >
                 <div className={`hidden md:block ${i % 2 === 1 ? "md:order-2" : ""}`} />
                 <div className={`relative flex items-start gap-4 ${i % 2 === 1 ? "md:order-1" : ""}`} style={{ direction: "inherit" }}>
-                  <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-500 text-white shadow-glow">
+                  <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-gradient text-white shadow-glow">
                     <s.icon className="h-5 w-5" />
-                    <span className="absolute -top-2 -end-2 grid h-6 w-6 place-items-center rounded-full bg-slate-900 text-[10px] font-bold text-blue-300 ring-1 ring-white/10">
+                    <span className="absolute -top-2 -end-2 grid h-6 w-6 place-items-center rounded-full bg-slate-900 text-[10px] font-bold text-purple-300 ring-1 ring-white/10">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>

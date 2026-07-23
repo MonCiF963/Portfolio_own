@@ -77,19 +77,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nova.dev — Premium Web Design & Development Studio" },
+      { title: "MoDev — Freelance Web Developer & UI/UX Designer" },
       {
         name: "description",
         content:
-          "Nova.dev is a premium freelance web design and development studio building fast, modern, conversion-focused websites for businesses.",
+          "MoDev — freelance web developer and UI/UX designer building modern, fast, responsive websites from scratch for businesses.",
       },
-      { name: "theme-color", content: "#0b1220" },
-      { property: "og:site_name", content: "Nova.dev" },
+      { name: "theme-color", content: "#120a1f" },
+      { property: "og:site_name", content: "MoDev" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Nova.dev — Premium Web Design & Development" },
+      { property: "og:title", content: "MoDev — Freelance Web Developer & UI/UX Designer" },
       {
         property: "og:description",
-        content: "Custom, high-end websites and web apps that convert visitors into clients.",
+        content: "Modern, fast, custom websites built from scratch by an independent web developer.",
       },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -111,10 +111,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Nova.dev",
+          "@type": "Person",
+          name: "MoDev",
+          jobTitle: "Freelance Web Developer & UI/UX Designer",
           description:
-            "Premium freelance web design and development studio building modern, fast, conversion-focused websites.",
+            "Freelance web developer and UI/UX designer building modern, fast, responsive websites from scratch.",
           url: "/",
         }),
       },

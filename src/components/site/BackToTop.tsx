@@ -13,7 +13,7 @@ export function BackToTop() {
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Back to top"
-      className="fixed bottom-6 start-6 z-40 grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-500 text-white shadow-glow transition-transform hover:scale-110"
+      className="fixed bottom-6 start-6 z-40 grid h-11 w-11 place-items-center rounded-full bg-brand-gradient text-white shadow-glow transition-transform hover:scale-110"
     >
       <ArrowUp className="h-5 w-5" />
     </button>

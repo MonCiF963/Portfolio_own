@@ -42,10 +42,10 @@ export function Navbar() {
           }`}
         >
           <a href="#home" className="flex items-center gap-2 font-display">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-500 shadow-glow">
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-gradient shadow-glow">
               <Sparkles className="h-4 w-4 text-white" />
             </span>
-            <span className="text-lg font-bold tracking-tight">Nova<span className="text-gradient">.dev</span></span>
+            <span className="text-lg font-bold tracking-tight">Mo<span className="text-gradient">Dev</span></span>
           </a>
 
           <nav className="hidden items-center gap-1 lg:flex">
@@ -64,7 +64,7 @@ export function Navbar() {
             <div className="hidden md:block"><LanguageSwitcher /></div>
             <a
               href="#contact"
-              className="hidden rounded-full bg-gradient-to-r from-blue-600 to-indigo-500 px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-[1.03] md:inline-flex"
+              className="hidden rounded-full bg-brand-gradient px-5 py-2.5 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-[1.03] md:inline-flex"
             >
               {t("cta.quote")}
             </a>
@@ -100,7 +100,7 @@ export function Navbar() {
                 <a
                   href="#contact"
                   onClick={() => setOpen(false)}
-                  className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-500 px-5 py-2.5 text-sm font-semibold text-white"
+                  className="rounded-full bg-brand-gradient px-5 py-2.5 text-sm font-semibold text-white"
                 >
                   {t("cta.quote")}
                 </a>
