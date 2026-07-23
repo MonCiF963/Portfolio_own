@@ -48,25 +48,20 @@ export function Pricing() {
               }`}
             >
               {p.popular && (
-                <div className="absolute end-4 top-4 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-500 px-3 py-1 text-[10px] font-bold text-white shadow-glow">
+                <div className="absolute end-4 top-4 inline-flex items-center gap-1 rounded-full bg-brand-gradient px-3 py-1 text-[10px] font-bold text-white shadow-glow">
                   <Sparkles className="h-3 w-3" /> {t("pricing.mostPopular")}
                 </div>
               )}
               <h3 className="text-lg font-semibold">{p.name[lang]}</h3>
               <div className="mt-4">
-                <div className="text-xs text-muted-foreground">
-                  {p.onRequest ? " " : t("pricing.startFrom")}
-                </div>
-                <div className="mt-1 flex items-baseline gap-1">
-                  <span className="font-display text-3xl font-bold text-gradient">
-                    {p.onRequest ? t("pricing.onRequest") : t("pricing.startFrom")}
-                  </span>
+                <div className="font-display text-2xl font-bold text-gradient">
+                  {p.onRequest ? t("pricing.onRequest") : t("pricing.startFrom")}
                 </div>
               </div>
               <ul className="mt-6 flex-1 space-y-3 text-sm">
                 {p.features[lang].map((f, k) => (
                   <li key={k} className="flex items-start gap-2">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-400" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-purple-300" />
                     <span className="text-muted-foreground">{f}</span>
                   </li>
                 ))}
@@ -75,7 +70,7 @@ export function Pricing() {
                 href="#contact"
                 className={`mt-6 inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold transition-all ${
                   p.popular
-                    ? "bg-gradient-to-r from-blue-600 to-indigo-500 text-white shadow-glow"
+                    ? "bg-brand-gradient text-white shadow-glow"
                     : "glass hover:bg-white/10"
                 }`}
               >

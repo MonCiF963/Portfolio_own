@@ -16,7 +16,7 @@ export function LanguageSwitcher() {
           onClick={() => setLang(o.code)}
           className={`rounded-full px-3 py-1.5 transition-colors ${
             lang === o.code
-              ? "bg-gradient-to-r from-blue-600 to-indigo-500 text-white shadow-glow"
+              ? "bg-brand-gradient text-white shadow-glow"
               : "text-muted-foreground hover:text-foreground"
           }`}
         >

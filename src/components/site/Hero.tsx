@@ -16,7 +16,7 @@ export function Hero() {
             className="text-center lg:text-start"
           >
             <div className="glass mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium text-muted-foreground">
-              <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-500">
+              <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-to-br from-purple-500 to-blue-500">
                 <Sparkles className="h-3 w-3 text-white" />
               </span>
               {t("hero.badge")}
@@ -32,7 +32,7 @@ export function Hero() {
             <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-500 px-6 py-3 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-[1.03]"
+                className="group inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-[1.03]"
               >
                 {t("cta.quote")}
                 <Arrow className={`h-4 w-4 transition-transform ${dir === "rtl" ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"}`} />
@@ -53,7 +53,7 @@ export function Hero() {
                 { icon: Gauge, label: t("hero.chip3") },
               ].map((c, i) => (
                 <div key={i} className="glass inline-flex items-center gap-2 rounded-full px-3 py-1.5">
-                  <c.icon className="h-3.5 w-3.5 text-blue-400" />
+                  <c.icon className="h-3.5 w-3.5 text-purple-300" />
                   {c.label}
                 </div>
               ))}
@@ -67,7 +67,7 @@ export function Hero() {
             className="relative mx-auto w-full max-w-xl"
           >
             {/* Glow */}
-            <div className="absolute inset-0 -z-10 rounded-full bg-blue-600/30 blur-3xl" />
+            <div className="absolute inset-0 -z-10 rounded-full bg-purple-600/30 blur-3xl" />
 
             {/* Laptop */}
             <div className="relative animate-float-slow">
@@ -115,7 +115,7 @@ export function Hero() {
               className="glass-strong absolute -top-6 -start-4 rounded-2xl p-3 text-xs shadow-glow md:-start-8"
             >
               <div className="flex items-center gap-2">
-                <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-blue-500 to-indigo-500">
+                <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-purple-500 to-blue-500">
                   <Code2 className="h-4 w-4 text-white" />
                 </div>
                 <div>
@@ -135,7 +135,7 @@ function BrowserMock() {
   return (
     <div className="p-4">
       <div className="glass mb-3 flex items-center gap-2 rounded-full px-3 py-1.5 text-[10px] text-muted-foreground">
-        <span className="h-1.5 w-1.5 rounded-full bg-green-400" /> nova.dev
+        <span className="h-1.5 w-1.5 rounded-full bg-green-400" /> modev.dev
       </div>
       <div className="grid grid-cols-3 gap-3">
         <div className="col-span-2 space-y-2">
@@ -151,7 +151,7 @@ function BrowserMock() {
           <div className="h-24 rounded-lg bg-white/10" />
           <div className="h-3 w-full rounded bg-white/30" />
           <div className="h-3 w-3/4 rounded bg-white/20" />
-          <div className="mt-2 h-8 rounded-md bg-gradient-to-r from-blue-500 to-indigo-500" />
+          <div className="mt-2 h-8 rounded-md bg-gradient-to-r from-purple-500 to-blue-500" />
         </div>
       </div>
     </div>

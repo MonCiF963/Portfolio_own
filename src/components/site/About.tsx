@@ -15,7 +15,7 @@ export function About() {
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t("about.p2")}</p>
             <a
               href="#contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-500 px-6 py-3 text-sm font-semibold text-white shadow-glow"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-semibold text-white shadow-glow"
             >
               {t("cta.quote")}
             </a>
@@ -31,7 +31,7 @@ export function About() {
               <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-blue-500/30 blur-3xl" />
               <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-indigo-500/25 blur-3xl" />
               <div className="relative flex h-full flex-col justify-between">
-                <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-500 shadow-glow">
+                <div className="grid h-16 w-16 place-items-center rounded-2xl bg-brand-gradient shadow-glow">
                   <Sparkles className="h-8 w-8 text-white" />
                 </div>
                 <div className="space-y-4">

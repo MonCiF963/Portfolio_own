@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { useI18n } from "@/lib/i18n";
 import { projects, type ProjectCategory } from "@/lib/projects";
@@ -38,7 +37,7 @@ export function Portfolio() {
               onClick={() => setActive(f.id)}
               className={`rounded-full px-4 py-2 text-xs font-medium transition-all ${
                 active === f.id
-                  ? "bg-gradient-to-r from-blue-600 to-indigo-500 text-white shadow-glow"
+                  ? "bg-brand-gradient text-white shadow-glow"
                   : "glass text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -76,35 +75,13 @@ export function Portfolio() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <div className="mb-2 flex items-center justify-between">
+                  <div className="mb-2 flex items-center justify-between gap-3">
                     <h3 className="text-lg font-semibold">{p.title[lang]}</h3>
-                    <span className="text-[10px] font-medium uppercase tracking-wider text-blue-300">
+                    <span className="shrink-0 rounded-full border border-purple-400/30 bg-purple-500/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-purple-200">
                       {t(`portfolio.filter.${p.category}`)}
                     </span>
                   </div>
                   <p className="text-sm leading-relaxed text-muted-foreground">{p.description[lang]}</p>
-                  <div className="mt-4 flex items-center gap-2">
-                    {p.liveUrl && (
-                      <a
-                        href={p.liveUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-500 px-3 py-1.5 text-xs font-semibold text-white"
-                      >
-                        <ExternalLink className="h-3 w-3" /> {t("portfolio.viewLive")}
-                      </a>
-                    )}
-                    {p.codeUrl && (
-                      <a
-                        href={p.codeUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold"
-                      >
-                        <Github className="h-3 w-3" /> {t("portfolio.viewCode")}
-                      </a>
-                    )}
-                  </div>
                 </div>
               </motion.article>
             ))}

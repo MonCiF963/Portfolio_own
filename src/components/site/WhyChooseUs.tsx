@@ -30,7 +30,7 @@ export function WhyChooseUs() {
               transition={{ duration: 0.5, delay: i * 0.04 }}
               className="group flex items-start gap-3 rounded-2xl glass p-5 transition-all hover:-translate-y-1"
             >
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-500 shadow-glow">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand-gradient shadow-glow">
                 <Check className="h-4 w-4 text-white" />
               </span>
               <p className="pt-1.5 text-sm font-medium">{lang === "ar" ? it.ar : it.fr}</p>

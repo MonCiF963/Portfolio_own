@@ -18,10 +18,10 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <a href="#home" className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-500 shadow-glow">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-gradient shadow-glow">
                 <Sparkles className="h-4 w-4 text-white" />
               </span>
-              <span className="text-lg font-bold">Nova<span className="text-gradient">.dev</span></span>
+              <span className="text-lg font-bold">Mo<span className="text-gradient">Dev</span></span>
             </a>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">{t("footer.tagline")}</p>
           </div>
@@ -47,7 +47,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-6 text-xs text-muted-foreground md:flex-row">
-          <div>© {new Date().getFullYear()} Nova.dev — {t("footer.rights")}</div>
+          <div>© {new Date().getFullYear()} MoDev — {t("footer.rights")}</div>
           <div>Made with care in Algeria</div>
         </div>
       </div>
