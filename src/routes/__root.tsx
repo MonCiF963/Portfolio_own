@@ -98,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -113,9 +113,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Person",
           name: "MoDev",
-          jobTitle: "Freelance Web Developer & UI/UX Designer",
+          jobTitle: "Freelance Web Developer",
           description:
-            "Freelance web developer and UI/UX designer building modern, fast, responsive websites from scratch.",
+            "Freelance web developer building modern, fast, responsive websites from scratch.",
           url: "/",
         }),
       },

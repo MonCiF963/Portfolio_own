@@ -12,7 +12,7 @@ const plans = [
     },
   },
   {
-    name: { ar: "موقع تعريفي للشركة", fr: "Site vitrine / entreprise" },
+    name: { ar: "موقع ويب احترافي", fr: "Site web multi-pages" },
     popular: true,
     features: {
       ar: ["حتى عدة صفحات مخصّصة", "تصميم متوافق مع هويتك", "بنية محسّنة لمحركات البحث", "نماذج وتكاملات أساسية", "تدريب على إدارة المحتوى"],
