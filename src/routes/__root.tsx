@@ -83,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "MoDev — freelance web developer and UI/UX designer building modern, fast, responsive websites from scratch for businesses.",
       },
-      { name: "theme-color", content: "#120a1f" },
+      { name: "theme-color", content: "#07090a" },
       { property: "og:site_name", content: "MoDev" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "MoDev — Freelance Web Developer & UI/UX Designer" },
@@ -103,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap",
       },
     ],
     scripts: [
