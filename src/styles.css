@@ -61,51 +61,54 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-brand: var(--brand);
   --color-brand-glow: var(--brand-glow);
-  --font-sans: "Inter", "Cairo", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Cairo", ui-sans-serif, system-ui, sans-serif;
-  --font-arabic: "Cairo", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: var(--ink);
+  --font-sans: "Manrope", "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: "Cairo", "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 1rem;
-  /* Dark theme by default — this is a premium dark portfolio */
-  --background: oklch(0.13 0.03 280);
-  --foreground: oklch(0.98 0.005 240);
-  --card: oklch(0.17 0.035 285);
-  --card-foreground: oklch(0.98 0.005 240);
-  --popover: oklch(0.17 0.035 285);
-  --popover-foreground: oklch(0.98 0.005 240);
-  --primary: oklch(0.62 0.25 300);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.23 0.04 285);
-  --secondary-foreground: oklch(0.98 0.005 240);
-  --muted: oklch(0.21 0.035 285);
-  --muted-foreground: oklch(0.7 0.02 260);
-  --accent: oklch(0.28 0.06 300);
-  --accent-foreground: oklch(0.98 0.005 240);
+  --radius: 1.25rem;
+  /* Editorial Bento Noir — near-black canvas, royal green primary. */
+  --background: oklch(0.145 0.008 200);      /* #07090a */
+  --foreground: oklch(0.985 0.003 240);
+  --ink: oklch(0.13 0.008 200);
+  --card: oklch(0.205 0.014 210);            /* #10161a */
+  --card-foreground: oklch(0.985 0.003 240);
+  --popover: oklch(0.205 0.014 210);
+  --popover-foreground: oklch(0.985 0.003 240);
+  --primary: oklch(0.68 0.135 165);          /* royal green #12a97a */
+  --primary-foreground: oklch(0.14 0.01 200);
+  --secondary: oklch(0.25 0.016 215);
+  --secondary-foreground: oklch(0.985 0.003 240);
+  --muted: oklch(0.24 0.014 215);
+  --muted-foreground: oklch(0.72 0.012 220);
+  --accent: oklch(0.62 0.19 258);            /* electric blue #3b82f6 */
+  --accent-foreground: oklch(0.985 0.003 240);
   --destructive: oklch(0.62 0.24 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.62 0.25 300);
-  --brand-purple: oklch(0.65 0.27 305);
-  --brand-blue: oklch(0.66 0.22 255);
-  --brand-green: oklch(0.68 0.19 155);
-  --brand: var(--brand-purple);
+  --border: oklch(1 0 0 / 7%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.68 0.135 165);
+  --brand-green: oklch(0.68 0.135 165);
+  --brand-blue: oklch(0.62 0.19 258);
+  --brand-cyan: oklch(0.78 0.13 205);
+  --brand-purple: oklch(0.6 0.2 295);
+  --brand: var(--brand-green);
   --brand-glow: var(--brand-blue);
-  --chart-1: var(--brand-purple);
+  --chart-1: var(--brand-green);
   --chart-2: var(--brand-blue);
-  --chart-3: var(--brand-green);
-  --chart-4: oklch(0.8 0.15 230);
+  --chart-3: var(--brand-cyan);
+  --chart-4: var(--brand-purple);
   --chart-5: oklch(0.65 0.2 220);
-  --sidebar: oklch(0.15 0.03 285);
-  --sidebar-foreground: oklch(0.98 0.005 240);
-  --sidebar-primary: oklch(0.62 0.25 300);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.23 0.04 285);
-  --sidebar-accent-foreground: oklch(0.98 0.005 240);
-  --sidebar-border: oklch(1 0 0 / 8%);
-  --sidebar-ring: oklch(0.62 0.25 300);
+  --sidebar: oklch(0.18 0.012 210);
+  --sidebar-foreground: oklch(0.985 0.003 240);
+  --sidebar-primary: oklch(0.68 0.135 165);
+  --sidebar-primary-foreground: oklch(0.14 0.01 200);
+  --sidebar-accent: oklch(0.25 0.016 215);
+  --sidebar-accent-foreground: oklch(0.985 0.003 240);
+  --sidebar-border: oklch(1 0 0 / 7%);
+  --sidebar-ring: oklch(0.68 0.135 165);
 }
 
 .dark {
@@ -141,19 +144,25 @@
 }
 
 @utility glass {
-  background: color-mix(in oklab, var(--card) 60%, transparent);
-  backdrop-filter: blur(18px) saturate(140%);
-  border: 1px solid color-mix(in oklab, white 8%, transparent);
+  background: color-mix(in oklab, var(--card) 65%, transparent);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid color-mix(in oklab, white 6%, transparent);
 }
 
 @utility glass-strong {
-  background: color-mix(in oklab, var(--card) 78%, transparent);
-  backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid color-mix(in oklab, white 10%, transparent);
+  background: color-mix(in oklab, var(--card) 88%, transparent);
+  backdrop-filter: blur(22px) saturate(130%);
+  border: 1px solid color-mix(in oklab, white 8%, transparent);
+}
+
+@utility tile {
+  background: color-mix(in oklab, var(--card) 92%, transparent);
+  border: 1px solid color-mix(in oklab, white 6%, transparent);
+  border-radius: 2rem;
 }
 
 @utility text-gradient {
-  background: linear-gradient(120deg, oklch(0.72 0.25 305) 0%, oklch(0.7 0.22 255) 50%, oklch(0.72 0.19 155) 100%);
+  background: linear-gradient(100deg, var(--brand-green) 0%, var(--brand-cyan) 48%, var(--brand-blue) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -161,25 +170,25 @@
 
 @utility bg-grid {
   background-image:
-    linear-gradient(to right, color-mix(in oklab, white 5%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, white 5%, transparent) 1px, transparent 1px);
-  background-size: 56px 56px;
+    linear-gradient(to right, color-mix(in oklab, white 3.5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, white 3.5%, transparent) 1px, transparent 1px);
+  background-size: 72px 72px;
 }
 
 @utility shadow-glow {
-  box-shadow: 0 20px 60px -20px color-mix(in oklab, var(--brand-purple) 55%, transparent);
+  box-shadow: 0 18px 50px -24px color-mix(in oklab, var(--brand-green) 60%, transparent);
 }
 
 @utility bg-brand-gradient {
-  background-image: linear-gradient(135deg, oklch(0.62 0.27 305) 0%, oklch(0.6 0.22 255) 55%, oklch(0.62 0.19 155) 100%);
+  background-image: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-cyan) 55%, var(--brand-blue) 100%);
 }
 
 @utility bg-brand-gradient-soft {
-  background-image: linear-gradient(135deg, color-mix(in oklab, oklch(0.62 0.27 305) 22%, transparent) 0%, color-mix(in oklab, oklch(0.6 0.22 255) 22%, transparent) 55%, color-mix(in oklab, oklch(0.62 0.19 155) 22%, transparent) 100%);
+  background-image: linear-gradient(135deg, color-mix(in oklab, var(--brand-green) 18%, transparent) 0%, color-mix(in oklab, var(--brand-blue) 18%, transparent) 100%);
 }
 
 @utility ring-brand {
-  --tw-ring-color: color-mix(in oklab, var(--brand-purple) 45%, transparent);
+  --tw-ring-color: color-mix(in oklab, var(--brand-green) 45%, transparent);
 }
 
 @keyframes blob {
