@@ -5,20 +5,30 @@ import { AnimatedBackground } from "@/components/site/AnimatedBackground";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
-import { TrustedTech } from "@/components/site/TrustedTech";
 import { Services } from "@/components/site/Services";
 import { Portfolio } from "@/components/site/Portfolio";
 import { WhyChooseUs } from "@/components/site/WhyChooseUs";
-import { Process } from "@/components/site/Process";
 import { About } from "@/components/site/About";
-import { Pricing } from "@/components/site/Pricing";
-import { FAQ } from "@/components/site/FAQ";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { BackToTop } from "@/components/site/BackToTop";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 
+const title = "MoDev — Freelance Web Developer & Digital Creator";
+const description =
+  "I'm MoDev, a freelance web developer. I design and build fast, responsive, custom websites from scratch — selected projects, services and direct contact.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
@@ -31,14 +41,10 @@ function Index() {
         <Navbar />
         <main>
           <Hero />
-          <TrustedTech />
-          <Services />
           <Portfolio />
-          <WhyChooseUs />
-          <Process />
+          <Services />
           <About />
-          <Pricing />
-          <FAQ />
+          <WhyChooseUs />
           <Contact />
         </main>
         <Footer />

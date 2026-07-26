@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, MessageCircle, Facebook, Instagram, Linkedin, Github, ArrowUpRight } from "lucide-react";
+import { Mail, MessageCircle, Facebook, Instagram, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { useI18n } from "@/lib/i18n";
 
@@ -8,55 +8,84 @@ type Channel = {
   label: string;
   value: string;
   href: string;
-  accent: string;
   external?: boolean;
+  primary?: boolean;
 };
 
 export function Contact() {
   const { t } = useI18n();
 
   const channels: Channel[] = [
-    { icon: MessageCircle, label: t("contact.whatsapp"), value: "BMo.Dv", href: "https://wa.me/213558619475", accent: "from-emerald-500 to-teal-500", external: true },
-    { icon: Mail, label: t("contact.email_label"), value: "hello@modev.dev", href: "mailto:hello@modev.dev", accent: "from-purple-500 via-blue-500 to-emerald-400" },
-  //{ icon: Facebook, label: "Facebook", value: "@modev", href: "#", accent: "from-blue-500 to-emerald-500", external: true },
-    { icon: Instagram, label: "Instagram", value: "MoDev", href: "https://www.instagram.com/bymo.dev/?utm_source=ig_web_button_share_sheet", accent: "from-pink-500 via-rose-500 to-orange-500", external: true },
-  //{ icon: Linkedin, label: "LinkedIn", value: "MoDev", href: "#", accent: "from-blue-500 to-purple-600", external: true },
-    { icon: Github, label: "GitHub", value: "MoDev", href: "https://github.com/MonCiF963", accent: "from-slate-500 to-slate-800", external: true },
+    {
+      icon: MessageCircle,
+      label: t("contact.whatsapp"),
+      value: "+213 558 619 475",
+      href: "https://wa.me/213558619475",
+      external: true,
+      primary: true,
+    },
+    { icon: Mail, label: t("contact.email_label"), value: "hello@modev.dev", href: "mailto:hello@modev.dev" },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      value: "@bymo.dev",
+      href: "https://www.instagram.com/bymo.dev/",
+      external: true,
+    },
+    { icon: Facebook, label: "Facebook", value: "MoDev", href: "https://facebook.com/", external: true },
+    { icon: Linkedin, label: "LinkedIn", value: "MoDev", href: "https://linkedin.com/", external: true },
+    { icon: Github, label: "GitHub", value: "MonCiF963", href: "https://github.com/MonCiF963", external: true },
   ];
 
   return (
-    <section id="contact" className="relative py-24">
-      <div className="mx-auto max-w-7xl px-4">
-        <SectionHeader
-          eyebrow={t("contact.eyebrow")}
-          title={t("contact.title")}
-          subtitle={t("contact.subtitle")}
-        />
+    <section id="contact" className="px-4 pb-24 md:pb-32">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <SectionHeader
+            eyebrow={t("contact.eyebrow")}
+            title={t("contact.title")}
+            subtitle={t("contact.subtitle")}
+            className="mb-0"
+          />
+          <div className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            {t("contact.available")}
+          </div>
+        </div>
 
-        <div className="mx-auto grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3">
           {channels.map((c, i) => (
             <motion.a
               key={i}
               href={c.href}
               target={c.external ? "_blank" : undefined}
               rel={c.external ? "noopener noreferrer" : undefined}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="group glass-strong relative flex items-center justify-between gap-4 overflow-hidden rounded-2xl p-5 transition-all hover:-translate-y-1 hover:shadow-glow"
+              transition={{ duration: 0.45, delay: i * 0.05 }}
+              className={`tile group flex items-center justify-between gap-4 p-6 transition-all hover:-translate-y-0.5 ${
+                c.primary ? "border-primary/25 hover:border-primary/40" : "hover:border-white/15"
+              }`}
             >
-              <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-purple-500/10 blur-2xl transition-opacity group-hover:bg-purple-500/25" />
-              <div className="relative flex items-center gap-4">
-                <div className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br ${c.accent} shadow-glow`}>
-                  <c.icon className="h-5 w-5 text-white" />
-                </div>
+              <div className="flex min-w-0 items-center gap-4">
+                <span
+                  className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl ${
+                    c.primary ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"
+                  }`}
+                >
+                  <c.icon className="h-4.5 w-4.5" />
+                </span>
                 <div className="min-w-0">
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground">{c.label}</div>
-                  <div className="mt-0.5 truncate text-sm font-semibold">{c.value}</div>
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    {c.label}
+                  </div>
+                  <div className="mt-1 truncate text-sm font-semibold" dir="ltr">
+                    {c.value}
+                  </div>
                 </div>
               </div>
-              <ArrowUpRight className="relative h-4 w-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
             </motion.a>
           ))}
         </div>

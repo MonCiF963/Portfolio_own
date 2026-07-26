@@ -66,18 +66,6 @@ export const projects: Project[] = [
     date: "2025-01",
   },
   {
-    id: "batir-construction",
-    title: { ar: "شركة باطر للمقاولات", fr: "Bâtir Construction" },
-    description: {
-      ar: "موقع لشركة مقاولات وبناء، يبرز مشاريعها المنجزة ويمنح العملاء المحتملين صورة واضحة عن خبرتها.",
-      fr: "Site pour une entreprise du BTP : mettre en avant les chantiers réalisés et rassurer les prospects sur son savoir-faire.",
-    },
-    category: "construction",
-    cover: shot("photo-1503387762-592deb58ef4e"),
-    technologies: ["Next.js", "Framer Motion"],
-    date: "2024-12",
-  },
-  {
     id: "villa-immo",
     title: { ar: "فيلا العقارية", fr: "Villa Immobilier" },
     description: {

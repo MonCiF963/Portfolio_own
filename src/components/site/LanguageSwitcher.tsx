@@ -1,22 +1,26 @@
 import { useI18n, type Lang } from "@/lib/i18n";
-import { Languages } from "lucide-react";
+
+const options: { code: Lang; label: string }[] = [
+  { code: "ar", label: "AR" },
+  { code: "fr", label: "FR" },
+];
 
 export function LanguageSwitcher() {
   const { lang, setLang } = useI18n();
-  const options: { code: Lang; label: string }[] = [
-    { code: "ar", label: "AR" },
-    { code: "fr", label: "FR" },
-  ];
   return (
-    <div className="glass inline-flex items-center rounded-full p-1 text-xs font-medium">
-      <Languages className="mx-2 h-3.5 w-3.5 text-muted-foreground" />
+    <div
+      className="flex items-center rounded-full border border-border bg-background/60 p-1"
+      role="group"
+      aria-label="Language"
+    >
       {options.map((o) => (
         <button
           key={o.code}
           onClick={() => setLang(o.code)}
-          className={`rounded-full px-3 py-1.5 transition-colors ${
+          aria-pressed={lang === o.code}
+          className={`rounded-full px-3 py-1 text-[11px] font-bold tracking-wide transition-colors ${
             lang === o.code
-              ? "bg-brand-gradient text-white shadow-glow"
+              ? "bg-primary text-primary-foreground"
               : "text-muted-foreground hover:text-foreground"
           }`}
         >

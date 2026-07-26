@@ -1,53 +1,73 @@
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { useI18n } from "@/lib/i18n";
+
+const stack = ["React", "Next.js", "TypeScript", "Tailwind", "Node.js", "Figma"];
 
 export function About() {
   const { t } = useI18n();
   return (
-    <section id="about" className="relative py-24">
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <SectionHeader eyebrow={t("about.eyebrow")} title={t("about.title")} align="start" />
-            <p className="text-base leading-relaxed text-muted-foreground">{t("about.p1")}</p>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t("about.p2")}</p>
+    <section id="about" className="px-4 pb-24 md:pb-32">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-4 md:grid-cols-12">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.55 }}
+            className="tile p-8 md:col-span-7 md:p-12"
+          >
+            <SectionHeader eyebrow={t("about.eyebrow")} title={t("about.title")} className="mb-7" />
+            <p className="text-[15px] leading-relaxed text-muted-foreground">{t("about.p1")}</p>
+            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{t("about.p2")}</p>
             <a
               href="#contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-semibold text-white shadow-glow"
+              className="group mt-9 inline-flex items-center gap-2 text-sm font-semibold text-primary"
             >
-              {t("cta.quote")}
+              {t("cta.contactMe")}
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative"
-          >
-            <div className="glass-strong relative aspect-square overflow-hidden rounded-3xl p-8">
-              <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-blue-500/30 blur-3xl" />
-              <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-indigo-500/25 blur-3xl" />
-              <div className="relative flex h-full flex-col justify-between">
-                <div className="grid h-16 w-16 place-items-center rounded-2xl bg-brand-gradient shadow-glow">
-                  <Sparkles className="h-8 w-8 text-white" />
-                </div>
-                <div className="space-y-4">
-                  <div className="glass rounded-2xl p-4">
-                    <div className="text-xs text-muted-foreground">Focus</div>
-                    <div className="font-display text-xl font-bold">Performance · Design · Conversion</div>
-                  </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    {["React", "Next.js", "Node"].map((s) => (
-                      <div key={s} className="glass rounded-xl px-3 py-2 text-center text-xs font-semibold">{s}</div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
           </motion.div>
+
+          <div className="grid gap-4 md:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.55, delay: 0.08 }}
+              className="tile flex flex-col justify-center p-8"
+            >
+              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                {t("about.philosophy")}
+              </span>
+              <p className="mt-4 font-display text-2xl font-semibold leading-snug text-balance">
+                {t("about.philosophyValue")}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.55, delay: 0.14 }}
+              className="tile p-8"
+            >
+              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                Stack
+              </span>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {stack.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

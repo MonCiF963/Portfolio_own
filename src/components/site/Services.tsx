@@ -1,103 +1,119 @@
 import { motion } from "framer-motion";
-import {
-  Building2, ShoppingBag, Rocket, LayoutDashboard,
-  Palette, Smartphone, Gauge, Search,
-} from "lucide-react";
+import { Code2, Rocket, PenTool, Image as ImageIcon, Film } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { useI18n } from "@/lib/i18n";
 
-const items = [
+const primary = [
   {
-    icon: Building2,
-    title: { ar: "مواقع الشركات", fr: "Sites d'entreprise" },
+    icon: Code2,
+    accent: "primary" as const,
+    title: { ar: "تطوير المواقع", fr: "Développement de sites" },
     desc: {
-      ar: "موقع تعريفي أنيق يقدّم نشاطك، خدماتك وفريقك بشكل واضح — لبناء ثقة الزوّار من أول زيارة.",
-      fr: "Un site vitrine soigné qui présente votre activité, vos services et votre équipe avec clarté — pour inspirer confiance dès la première visite.",
+      ar: "موقع مبني من الصفر حسب نشاطك: بنية نظيفة، تحميل سريع، وسهولة تحديث المحتوى لاحقاً.",
+      fr: "Un site construit de zéro pour votre activité : structure propre, chargement rapide et contenu facile à faire évoluer.",
     },
-  },
-  {
-    icon: ShoppingBag,
-    title: { ar: "المتاجر الإلكترونية", fr: "Boutiques en ligne" },
-    desc: {
-      ar: "متجر إلكتروني مصمّم لعرض منتجاتك بأناقة وتسهيل عملية الشراء على عملائك.",
-      fr: "Une boutique en ligne pensée pour mettre vos produits en valeur et simplifier le parcours d'achat de vos clients.",
-    },
+    tags: ["React", "Next.js", "Tailwind"],
   },
   {
     icon: Rocket,
+    accent: "accent" as const,
     title: { ar: "صفحات الهبوط", fr: "Landing pages" },
     desc: {
-      ar: "صفحة موجّهة لهدف واحد: تحويل الزوّار إلى عملاء محتملين، بأسلوب مقنع ورسالة واضحة.",
-      fr: "Une page pensée pour un seul objectif : convertir vos visiteurs en prospects, avec un message clair et convaincant.",
+      ar: "صفحة واحدة بهدف واحد: رسالة واضحة ومسار مباشر يحوّل الزائر إلى عميل محتمل.",
+      fr: "Une page, un objectif : un message clair et un parcours direct qui transforme le visiteur en contact.",
     },
+    tags: ["Copy", "Conversion", "SEO"],
   },
   {
-    icon: LayoutDashboard,
-    title: { ar: "تطبيقات ويب مخصّصة", fr: "Applications web sur mesure" },
+    icon: PenTool,
+    accent: "muted" as const,
+    title: { ar: "تصميم UI / UX", fr: "Design UI / UX" },
     desc: {
-      ar: "تطبيقات داخلية أو لوحات تحكّم مصمّمة حسب حاجتك، لتُبسّط عملك وتُوفّر وقتك.",
-      fr: "Applications internes ou tableaux de bord sur mesure, conçus pour simplifier votre activité et vous faire gagner du temps.",
+      ar: "أرسم الواجهات قبل كتابة الكود، حتى تعرف بالضبط كيف سيبدو موقعك وكيف سيتنقّل زوّارك فيه.",
+      fr: "Je dessine les écrans avant d'écrire le code : vous voyez exactement à quoi ressemblera le site et comment on y navigue.",
     },
-  },
-  {
-    icon: Palette,
-    title: { ar: "تصميم واجهات UI/UX", fr: "Design UI / UX" },
-    desc: {
-      ar: "واجهات نظيفة وتجربة استخدام مدروسة، تعكس هوية علامتك وتخدم أهداف زوّارك.",
-      fr: "Des interfaces épurées et une expérience utilisateur réfléchie, alignées sur votre identité et sur les besoins de vos visiteurs.",
-    },
-  },
-  {
-    icon: Smartphone,
-    title: { ar: "مواقع متجاوبة", fr: "Sites responsives" },
-    desc: {
-      ar: "تجربة مثالية على الحاسوب والجوّال، لأن أغلب زوّارك اليوم يتصفّحون من هواتفهم.",
-      fr: "Une expérience impeccable sur ordinateur et mobile — l'essentiel de vos visiteurs consulte désormais depuis un smartphone.",
-    },
-  },
-  {
-    icon: Gauge,
-    title: { ar: "أداء وسرعة", fr: "Performance & vitesse" },
-    desc: {
-      ar: "مواقع سريعة التحميل مبنية بأفضل الممارسات، لأن السرعة اليوم جزء من تجربة العميل.",
-      fr: "Des sites rapides à charger, construits avec les bonnes pratiques — la vitesse fait aujourd'hui partie de l'expérience client.",
-    },
-  },
-  {
-    icon: Search,
-    title: { ar: "أساسيات SEO التقني", fr: "SEO technique" },
-    desc: {
-      ar: "بنية نظيفة، بيانات وصفية دقيقة وأداء عالٍ — قاعدة سليمة يبدأ منها ظهورك في محركات البحث.",
-      fr: "Structure propre, balises soignées et performance solide — les fondations pour bien se positionner sur les moteurs de recherche.",
-    },
+    tags: ["Figma", "Wireframes", "Design system"],
   },
 ];
+
+const secondary = [
+  {
+    icon: ImageIcon,
+    title: { ar: "تصميم جرافيك", fr: "Design graphique" },
+    desc: { ar: "شعارات وهويات ومنشورات تُكمل موقعك.", fr: "Logos, identités et visuels qui accompagnent le site." },
+  },
+  {
+    icon: Film,
+    title: { ar: "مونتاج فيديو", fr: "Montage vidéo" },
+    desc: { ar: "فيديوهات قصيرة لعرض منتجك أو خدماتك.", fr: "Vidéos courtes pour présenter un produit ou un service." },
+  },
+];
+
+const accentClass = {
+  primary: "bg-primary text-primary-foreground shadow-glow",
+  accent: "bg-accent text-accent-foreground",
+  muted: "bg-white/5 text-foreground",
+};
 
 export function Services() {
   const { t, lang } = useI18n();
   return (
-    <section id="services" className="relative py-24">
-      <div className="mx-auto max-w-7xl px-4">
-        <SectionHeader eyebrow={t("services.eyebrow")} title={t("services.title")} subtitle={t("services.subtitle")} />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((s, i) => (
-            <motion.div
+    <section id="services" className="px-4 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader eyebrow={t("services.eyebrow")} title={t("services.title")} />
+
+        <div className="grid gap-4 md:grid-cols-12">
+          {primary.map((s, i) => (
+            <motion.article
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="group relative overflow-hidden rounded-2xl glass p-6 transition-all hover:-translate-y-1 hover:shadow-glow"
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
+              className="tile group p-8 transition-colors hover:border-primary/25 md:col-span-4"
             >
-              <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-purple-500/10 blur-2xl transition-opacity group-hover:bg-purple-500/25" />
-              <div className="relative grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient shadow-glow">
-                <s.icon className="h-6 w-6 text-white" />
+              <div className={`grid h-12 w-12 place-items-center rounded-2xl ${accentClass[s.accent]}`}>
+                <s.icon className="h-5 w-5" />
               </div>
-              <h3 className="relative mt-5 text-lg font-semibold">{s.title[lang]}</h3>
-              <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc[lang]}</p>
-              <div className="relative mt-4 h-[2px] w-10 rounded-full bg-gradient-to-r from-purple-500 to-transparent transition-all duration-500 group-hover:w-20" />
-            </motion.div>
+              <h3 className="mt-6 font-display text-xl font-semibold">{s.title[lang]}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc[lang]}</p>
+              <div className="mt-6 flex flex-wrap gap-1.5">
+                {s.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-border px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.article>
           ))}
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.5, delay: 0.18 }}
+            className="tile flex flex-col gap-6 p-8 md:col-span-12 md:flex-row md:items-center md:justify-between"
+          >
+            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+              {t("services.secondary")}
+            </span>
+            <div className="grid flex-1 gap-6 sm:grid-cols-2 md:max-w-2xl">
+              {secondary.map((s, i) => (
+                <div key={i} className="flex items-start gap-3.5">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-border">
+                    <s.icon className="h-4 w-4 text-muted-foreground" />
+                  </span>
+                  <div>
+                    <div className="text-sm font-semibold">{s.title[lang]}</div>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{s.desc[lang]}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

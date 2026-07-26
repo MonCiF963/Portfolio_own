@@ -7,14 +7,14 @@ import { projects, type ProjectCategory } from "@/lib/projects";
 const filters: { id: "all" | ProjectCategory; key: string }[] = [
   { id: "all", key: "portfolio.filter.all" },
   { id: "company", key: "portfolio.filter.company" },
-  { id: "restaurant", key: "portfolio.filter.restaurant" },
-  { id: "doctor", key: "portfolio.filter.doctor" },
-  { id: "construction", key: "portfolio.filter.construction" },
-  { id: "realestate", key: "portfolio.filter.realestate" },
   { id: "landing", key: "portfolio.filter.landing" },
   { id: "dashboard", key: "portfolio.filter.dashboard" },
   { id: "ecommerce", key: "portfolio.filter.ecommerce" },
+  { id: "restaurant", key: "portfolio.filter.restaurant" },
+  { id: "realestate", key: "portfolio.filter.realestate" },
 ];
+
+const span = (i: number) => (i === 0 ? "md:col-span-7" : i === 1 ? "md:col-span-5" : "md:col-span-4");
 
 export function Portfolio() {
   const { t, lang } = useI18n();
@@ -26,62 +26,71 @@ export function Portfolio() {
   );
 
   return (
-    <section id="portfolio" className="relative py-24">
-      <div className="mx-auto max-w-7xl px-4">
-        <SectionHeader eyebrow={t("portfolio.eyebrow")} title={t("portfolio.title")} subtitle={t("portfolio.subtitle")} />
-
-        <div className="mb-10 flex flex-wrap justify-center gap-2">
-          {filters.map((f) => (
-            <button
-              key={f.id}
-              onClick={() => setActive(f.id)}
-              className={`rounded-full px-4 py-2 text-xs font-medium transition-all ${
-                active === f.id
-                  ? "bg-brand-gradient text-white shadow-glow"
-                  : "glass text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {t(f.key)}
-            </button>
-          ))}
+    <section id="work" className="px-4 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <SectionHeader
+            eyebrow={t("portfolio.eyebrow")}
+            title={t("portfolio.title")}
+            subtitle={t("portfolio.subtitle")}
+            className="mb-0"
+          />
+          <div className="flex flex-wrap gap-1.5">
+            {filters.map((f) => (
+              <button
+                key={f.id}
+                onClick={() => setActive(f.id)}
+                className={`rounded-full px-3.5 py-1.5 text-[11px] font-semibold transition-colors ${
+                  active === f.id
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {t(f.key)}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <motion.div layout className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div layout className="grid gap-4 md:grid-cols-12">
           <AnimatePresence mode="popLayout">
-            {filtered.map((p) => (
+            {filtered.map((p, i) => (
               <motion.article
                 key={p.id}
                 layout
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                className="group overflow-hidden rounded-2xl glass"
+                exit={{ opacity: 0, scale: 0.97 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className={`tile group flex flex-col overflow-hidden transition-colors hover:border-primary/25 ${span(i)}`}
               >
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="relative min-h-0 flex-1 overflow-hidden">
                   <img
                     src={p.cover}
                     alt={p.title[lang]}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="h-full min-h-[13rem] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80" />
-                  <div className="absolute inset-x-4 bottom-4 flex flex-wrap gap-1.5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent opacity-70" />
+                  <span className="absolute top-4 start-4 rounded-full border border-border bg-background/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground backdrop-blur">
+                    {t(`portfolio.filter.${p.category}`)}
+                  </span>
+                </div>
+                <div className="shrink-0 p-7">
+                  <h3 className="font-display text-xl font-semibold">{p.title[lang]}</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                    {p.description[lang]}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-1.5">
                     {p.technologies.map((tech) => (
-                      <span key={tech} className="glass rounded-full px-2.5 py-1 text-[10px] font-medium">
+                      <span
+                        key={tech}
+                        className="rounded-full border border-border px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground"
+                      >
                         {tech}
                       </span>
                     ))}
                   </div>
-                </div>
-                <div className="p-5">
-                  <div className="mb-2 flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-semibold">{p.title[lang]}</h3>
-                    <span className="shrink-0 rounded-full border border-purple-400/30 bg-purple-500/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-purple-200">
-                      {t(`portfolio.filter.${p.category}`)}
-                    </span>
-                  </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{p.description[lang]}</p>
                 </div>
               </motion.article>
             ))}
