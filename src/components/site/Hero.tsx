@@ -61,23 +61,25 @@ export function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.12, ease: "easeOut" }}
-          className="tile relative overflow-hidden p-5 md:col-span-5"
+          className="tile flex flex-col justify-between gap-4 p-5 md:col-span-5"
         >
           <BrowserMockup src={showcase.cover} alt={showcase.title[lang]} />
-          <PhoneMockup
-            src={secondary.cover}
-            alt={secondary.title[lang]}
-            className="absolute -bottom-2 end-6 hidden h-40 w-[5.5rem] sm:block"
-          />
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {showcase.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-border px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="flex items-end gap-4">
+            <PhoneMockup
+              src={secondary.cover}
+              alt={secondary.title[lang]}
+              className="h-28 w-[4.25rem] shrink-0"
+            />
+            <div className="flex flex-wrap gap-1.5">
+              {showcase.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full border border-border px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

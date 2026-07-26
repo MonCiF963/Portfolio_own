@@ -62,21 +62,21 @@ export function Portfolio() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.97 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className={`tile group overflow-hidden transition-colors hover:border-primary/25 ${span(i)}`}
+                className={`tile group flex flex-col overflow-hidden transition-colors hover:border-primary/25 ${span(i)}`}
               >
-                <div className="relative overflow-hidden">
+                <div className="relative min-h-0 flex-1 overflow-hidden">
                   <img
                     src={p.cover}
                     alt={p.title[lang]}
                     loading="lazy"
-                    className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    className="h-full min-h-[13rem] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent opacity-70" />
                   <span className="absolute top-4 start-4 rounded-full border border-border bg-background/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground backdrop-blur">
                     {t(`portfolio.filter.${p.category}`)}
                   </span>
                 </div>
-                <div className="p-7">
+                <div className="shrink-0 p-7">
                   <h3 className="font-display text-xl font-semibold">{p.title[lang]}</h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
                     {p.description[lang]}
