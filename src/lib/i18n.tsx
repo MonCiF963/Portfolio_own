@@ -7,27 +7,31 @@ type Dict = Record<string, string | string[] | Record<string, string>>;
 const translations: Record<Lang, Dict> = {
   ar: {
     "nav.home": "الرئيسية",
-    "nav.portfolio": "أعمالي",
-    "nav.services": "خدماتي",
-    "nav.about": "نبذة عني",
+    "nav.services": "الخدمات",
+    "nav.portfolio": "الأعمال",
+    "nav.about": "نبذة",
     "nav.contact": "تواصل",
-    "cta.quote": "لنتحدّث عن مشروعك",
-    "cta.viewWork": "شاهد أعمالي",
+    "cta.quote": "ابدأ مشروعك",
+    "cta.viewWork": "شاهد الأعمال",
     "cta.contactMe": "تواصل معي",
+    "cta.demo": "عرض الموقع",
 
-    "hero.badge": "مطوّر ويب ومبدع رقمي مستقل",
-    "hero.title.1": "أصمّم وأبني",
-    "hero.title.2": "مواقع تُشبه علامتك",
+    "hero.badge": "تطوير ويب · تصميم واجهات · محتوى بصري",
+    "hero.title.1": "مواقع حديثة",
+    "hero.title.2": "تبني حضورك الرقمي",
     "hero.subtitle":
-      "أنا موديف، مطوّر ويب مستقل. أبني مواقع سريعة ومتجاوبة من الصفر — بدون قوالب جاهزة، وبتواصل مباشر معي من أول فكرة إلى الإطلاق.",
+      "أبني مواقع سريعة ومتجاوبة من الصفر، وأمنح نشاطك حضوراً واضحاً على الإنترنت — تصميم دقيق، كود نظيف، ونتائج تُقنع الزائر.",
+    "hero.scroll": "تابع للأسفل",
 
-    "services.eyebrow": "خدماتي",
+    "services.eyebrow": "الخدمات",
     "services.title": "ما أقدّمه",
-    "services.secondary": "خدمات تكميلية",
+    "services.primaryTag": "الخدمة الأساسية",
+    "services.secondary": "خدمات إبداعية مكمّلة",
 
-    "portfolio.eyebrow": "أعمالي",
+    "portfolio.eyebrow": "الأعمال",
     "portfolio.title": "مشاريع مختارة",
     "portfolio.subtitle": "نماذج تعكس أسلوبي في التصميم والتطوير.",
+    "portfolio.tech": "التقنيات",
     "portfolio.filter.all": "الكل",
     "portfolio.filter.company": "شركات",
     "portfolio.filter.restaurant": "مطاعم",
@@ -38,17 +42,15 @@ const translations: Record<Lang, Dict> = {
     "portfolio.filter.dashboard": "لوحات تحكم",
     "portfolio.filter.ecommerce": "متاجر",
 
-    "why.eyebrow": "لماذا تعمل معي",
-    "why.title": "ماذا تحصل عليه",
-
     "about.eyebrow": "نبذة عني",
-    "about.title": "أنا موديف",
+    "about.title": "طريقتي في العمل",
     "about.p1":
-      "مطوّر ومصمّم ويب مستقل. أبني واجهات نظيفة وأكتب كوداً مرتّباً، لأن الموقع الجيّد يُبنى في التفاصيل الصغيرة قبل أي شيء آخر.",
+      "أعمل على التفاصيل الصغيرة: المسافات، الخطوط، سرعة التحميل، وسلوك الواجهة على كل شاشة. الموقع الجيّد يُبنى هناك.",
     "about.p2":
-      "أحبّ اللحظة التي تتحوّل فيها فكرة غامضة إلى واجهة واضحة وسريعة. أُصغي أولاً، أخطّط، ثم أُنفّذ — وأنت تتعامل معي مباشرة في كل خطوة.",
-    "about.philosophy": "فلسفتي",
-    "about.philosophyValue": "البساطة، الوضوح، والأداء",
+      "أُصغي أولاً، أخطّط، ثم أُنفّذ — وأنت تتعامل معي مباشرة من الفكرة إلى الإطلاق، بدون وسطاء ولا قوالب جاهزة.",
+    "about.philosophy": "المبدأ",
+    "about.philosophyValue": "بساطة، وضوح، أداء",
+    "about.stack": "الأدوات",
 
     "contact.eyebrow": "تواصل",
     "contact.title": "لنبدأ مشروعك",
@@ -57,32 +59,36 @@ const translations: Record<Lang, Dict> = {
     "contact.email_label": "البريد الإلكتروني",
     "contact.available": "متاح لمشاريع جديدة",
 
-    "footer.tagline": "مطوّر ويب مستقل — أبني مواقع سريعة ومصمّمة من الصفر.",
+    "footer.tagline": "مواقع سريعة ومصمّمة من الصفر لأصحاب الأنشطة والعلامات.",
     "footer.rights": "جميع الحقوق محفوظة",
   },
   fr: {
     "nav.home": "Accueil",
-    "nav.portfolio": "Projets",
     "nav.services": "Services",
+    "nav.portfolio": "Projets",
     "nav.about": "À propos",
     "nav.contact": "Contact",
-    "cta.quote": "Parlons de votre projet",
-    "cta.viewWork": "Voir mes projets",
+    "cta.quote": "Démarrer un projet",
+    "cta.viewWork": "Voir les projets",
     "cta.contactMe": "Me contacter",
+    "cta.demo": "Voir la démo",
 
-    "hero.badge": "Développeur web & créateur digital freelance",
-    "hero.title.1": "Je conçois et développe",
-    "hero.title.2": "des sites qui vous ressemblent",
+    "hero.badge": "Développement web · UI/UX · Contenu visuel",
+    "hero.title.1": "Des sites modernes",
+    "hero.title.2": "qui installent votre présence",
     "hero.subtitle":
-      "Je suis MoDev, développeur web freelance. Je construis des sites rapides et responsives, entièrement sur mesure — sans template, et en échangeant directement avec moi du premier échange à la mise en ligne.",
+      "Je construis des sites rapides et responsives, entièrement sur mesure, pour donner à votre activité une présence en ligne claire et crédible.",
+    "hero.scroll": "Défiler",
 
     "services.eyebrow": "Services",
     "services.title": "Ce que je fais",
-    "services.secondary": "Services complémentaires",
+    "services.primaryTag": "Service principal",
+    "services.secondary": "Services créatifs complémentaires",
 
     "portfolio.eyebrow": "Projets",
     "portfolio.title": "Projets sélectionnés",
     "portfolio.subtitle": "Un aperçu de mon approche du design et du code.",
+    "portfolio.tech": "Technologies",
     "portfolio.filter.all": "Tous",
     "portfolio.filter.company": "Entreprise",
     "portfolio.filter.restaurant": "Restaurant",
@@ -93,17 +99,15 @@ const translations: Record<Lang, Dict> = {
     "portfolio.filter.dashboard": "Dashboard",
     "portfolio.filter.ecommerce": "E-commerce",
 
-    "why.eyebrow": "Pourquoi travailler avec moi",
-    "why.title": "Ce que vous obtenez",
-
     "about.eyebrow": "À propos",
-    "about.title": "Moi, c'est MoDev",
+    "about.title": "Ma façon de travailler",
     "about.p1":
-      "Développeur et designer web indépendant. Je dessine des interfaces sobres et j'écris un code propre, parce qu'un bon site se joue d'abord dans les détails.",
+      "Je travaille les détails : espacements, typographie, temps de chargement, comportement de l'interface sur chaque écran. Un bon site se joue là.",
     "about.p2":
-      "Ce que j'aime, c'est le moment où une idée floue devient une interface claire et rapide. J'écoute, je cadre, puis je construis — et vous échangez directement avec moi à chaque étape.",
-    "about.philosophy": "Ma philosophie",
+      "J'écoute, je cadre, puis je construis — et vous échangez directement avec moi, du concept à la mise en ligne. Sans intermédiaire, sans template.",
+    "about.philosophy": "Principe",
     "about.philosophyValue": "Simplicité, clarté, performance",
+    "about.stack": "Outils",
 
     "contact.eyebrow": "Contact",
     "contact.title": "Démarrons votre projet",
@@ -112,7 +116,7 @@ const translations: Record<Lang, Dict> = {
     "contact.email_label": "Email",
     "contact.available": "Disponible pour de nouveaux projets",
 
-    "footer.tagline": "Développeur web freelance — des sites rapides, conçus sur mesure.",
+    "footer.tagline": "Des sites rapides, conçus sur mesure pour les marques et les indépendants.",
     "footer.rights": "Tous droits réservés",
   },
 };
