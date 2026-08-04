@@ -77,19 +77,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MoDev — Freelance Web Developer & UI/UX Designer" },
+      { title: "MoCreat — Modern Websites for Brands & Businesses" },
       {
         name: "description",
         content:
-          "MoDev — freelance web developer and UI/UX designer building modern, fast, responsive websites from scratch for businesses.",
+          "MoCreat — modern, fast, custom websites plus UI/UX design, graphic design and video editing for businesses and brands.",
       },
-      { name: "theme-color", content: "#07090a" },
-      { property: "og:site_name", content: "MoDev" },
+      { name: "theme-color", content: "#0a0a0a" },
+      { property: "og:site_name", content: "MoCreat" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "MoDev — Freelance Web Developer & UI/UX Designer" },
+      { property: "og:title", content: "MoCreat — Modern Websites for Brands & Businesses" },
       {
         property: "og:description",
-        content: "Modern, fast, custom websites built from scratch by an independent web developer.",
+        content: "Modern, fast, custom websites built from scratch — development, UI/UX, graphic design, video.",
       },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -103,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cairo:wght@400;500;600;700&display=swap",
       },
     ],
     scripts: [
@@ -112,10 +112,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
-          name: "MoDev",
-          jobTitle: "Freelance Web Developer",
+          name: "MoCreat",
+          jobTitle: "Freelance Web Developer & Digital Creator",
           description:
-            "Freelance web developer building modern, fast, responsive websites from scratch.",
+            "Builds modern, fast, custom websites and digital content for businesses and brands.",
           url: "/",
         }),
       },

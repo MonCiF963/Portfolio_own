@@ -1,14 +1,13 @@
 import { motion, useScroll, useSpring } from "framer-motion";
-import { useI18n } from "@/lib/i18n";
 
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 20, mass: 0.2 });
-  const { dir } = useI18n();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 26, restDelta: 0.001 });
   return (
     <motion.div
-      style={{ scaleX, transformOrigin: dir === "rtl" ? "right" : "left" }}
-      className="fixed inset-x-0 top-0 z-[60] h-[2px] bg-brand-gradient"
+      aria-hidden
+      style={{ scaleX }}
+      className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-accent-line"
     />
   );
 }

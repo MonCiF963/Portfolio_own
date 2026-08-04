@@ -7,7 +7,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noreferrer"
       aria-label="WhatsApp"
-      className="fixed bottom-6 end-6 z-40 grid h-13 w-13 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"
+      className="animate-pulse-ring fixed bottom-6 end-6 z-40 grid h-11 w-11 place-items-center rounded-sm bg-foreground text-background transition-opacity hover:opacity-85"
     >
       <MessageCircle className="h-5 w-5" />
     </a>

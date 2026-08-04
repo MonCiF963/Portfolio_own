@@ -3,84 +3,78 @@ import { Mail, MessageCircle, Facebook, Instagram, Linkedin, Github, ArrowUpRigh
 import { SectionHeader } from "./SectionHeader";
 import { useI18n } from "@/lib/i18n";
 
-type Channel = {
-  icon: React.ElementType;
-  label: string;
-  value: string;
-  href: string;
-  external?: boolean;
-  primary?: boolean;
-};
-
 export function Contact() {
   const { t } = useI18n();
 
-  const channels: Channel[] = [
+  const channels = [
     {
       icon: MessageCircle,
       label: t("contact.whatsapp"),
       value: "+213 558 619 475",
       href: "https://wa.me/213558619475",
-      external: true,
-      primary: true,
+      accent: "text-acc-emerald",
     },
-    { icon: Mail, label: t("contact.email_label"), value: "hello@modev.dev", href: "mailto:hello@modev.dev" },
+    {
+      icon: Mail,
+      label: t("contact.email_label"),
+      value: "hello@mocreat.dev",
+      href: "mailto:hello@mocreat.dev",
+      accent: "text-acc-blue",
+    },
     {
       icon: Instagram,
       label: "Instagram",
-      value: "@bymo.dev",
+      value: "@mocreat",
       href: "https://www.instagram.com/bymo.dev/",
-      external: true,
+      accent: "text-acc-purple",
     },
-    { icon: Facebook, label: "Facebook", value: "MoDev", href: "https://facebook.com/", external: true },
-    { icon: Linkedin, label: "LinkedIn", value: "MoDev", href: "https://linkedin.com/", external: true },
-    { icon: Github, label: "GitHub", value: "MonCiF963", href: "https://github.com/MonCiF963", external: true },
+    { icon: Facebook, label: "Facebook", value: "MoCreat", href: "https://facebook.com/", accent: "text-acc-blue" },
+    { icon: Linkedin, label: "LinkedIn", value: "MoCreat", href: "https://linkedin.com/", accent: "text-acc-cyan" },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "MonCiF963",
+      href: "https://github.com/MonCiF963",
+      accent: "text-foreground",
+    },
   ];
 
   return (
-    <section id="contact" className="px-4 pb-24 md:pb-32">
+    <section id="contact" className="border-t border-border px-5 py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeader
             eyebrow={t("contact.eyebrow")}
             title={t("contact.title")}
             subtitle={t("contact.subtitle")}
-            className="mb-0"
           />
-          <div className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          <div className="inline-flex items-center gap-2.5 self-start rounded-sm border border-border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground md:self-end">
+            <span className="h-1.5 w-1.5 bg-acc-emerald" />
             {t("contact.available")}
           </div>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-3">
           {channels.map((c, i) => (
             <motion.a
               key={i}
               href={c.href}
-              target={c.external ? "_blank" : undefined}
-              rel={c.external ? "noopener noreferrer" : undefined}
-              initial={{ opacity: 0, y: 14 }}
+              target={c.href.startsWith("http") ? "_blank" : undefined}
+              rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45, delay: i * 0.05 }}
-              className={`tile group flex items-center justify-between gap-4 p-6 transition-all hover:-translate-y-0.5 ${
-                c.primary ? "border-primary/25 hover:border-primary/40" : "hover:border-white/15"
-              }`}
+              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative flex items-center justify-between gap-4 bg-background p-7 transition-colors hover:bg-white/[0.03]"
             >
+              <span className="absolute inset-x-0 top-0 h-px scale-x-0 bg-accent-line transition-transform duration-500 group-hover:scale-x-100" />
               <div className="flex min-w-0 items-center gap-4">
-                <span
-                  className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl ${
-                    c.primary ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"
-                  }`}
-                >
-                  <c.icon className="h-4.5 w-4.5" />
-                </span>
+                <c.icon className={`h-4.5 w-4.5 shrink-0 ${c.accent}`} />
                 <div className="min-w-0">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                     {c.label}
                   </div>
-                  <div className="mt-1 truncate text-sm font-semibold" dir="ltr">
+                  <div className="mt-1.5 truncate text-sm font-semibold" dir="ltr">
                     {c.value}
                   </div>
                 </div>

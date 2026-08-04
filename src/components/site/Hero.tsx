@@ -1,86 +1,105 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { projects } from "@/lib/projects";
-import { BrowserMockup, PhoneMockup } from "./Mockup";
+
+const rise = {
+  hidden: { opacity: 0, y: 22 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, delay: 0.1 + i * 0.09, ease: [0.16, 1, 0.3, 1] as const },
+  }),
+};
 
 export function Hero() {
-  const { t, lang } = useI18n();
-  const showcase = projects[0];
-  const secondary = projects[4] ?? projects[1];
+  const { t } = useI18n();
 
   return (
-    <section id="home" className="px-4 pt-28 md:pt-32">
-      <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-12">
+    <section id="home" className="relative flex min-h-[88vh] items-center overflow-hidden">
+      {/* Ambient workspace loop — dark and blurred so type stays legible */}
+      <div aria-hidden className="absolute inset-0 -z-10">
+        <video
+          className="h-full w-full scale-105 object-cover opacity-25 blur-[4px]"
+          src="/media/hero-loop.mp4"
+          poster="/media/hero-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/80" />
+        <div className="absolute inset-0 bg-grid opacity-40" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-border" />
+      </div>
+
+      <div className="mx-auto w-full max-w-6xl px-5 pb-16 pt-28 md:pb-20 md:pt-32">
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="tile relative overflow-hidden p-8 md:col-span-7 md:p-12"
+          custom={0}
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          className="flex items-center gap-3"
         >
-          <div className="pointer-events-none absolute -top-24 end-[-4rem] h-64 w-64 rounded-full bg-primary/10 blur-[90px]" />
-          <div className="relative">
-            <div className="flex items-center gap-2.5">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-primary/70" />
-              </span>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
-                {t("hero.badge")}
-              </span>
-            </div>
+          <span className="h-1.5 w-1.5 bg-acc-emerald" />
+          <span className="font-mono text-[11px] uppercase tracking-[0.26em] text-muted-foreground">
+            {t("hero.badge")}
+          </span>
+        </motion.div>
 
-            <h1 className="mt-6 font-display text-[2.1rem] font-bold leading-[1.12] tracking-tight text-balance sm:text-5xl md:text-[3.4rem]">
-              {t("hero.title.1")}
-              <br />
-              <span className="text-gradient">{t("hero.title.2")}</span>
-            </h1>
+        <motion.h1
+          custom={1}
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          className="mt-7 max-w-4xl font-display text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] text-balance sm:text-6xl md:text-[5.2rem]"
+        >
+          {t("hero.title.1")}
+          <br />
+          <span className="text-muted-foreground">{t("hero.title.2")}</span>
+        </motion.h1>
 
-            <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-muted-foreground md:text-base">
-              {t("hero.subtitle")}
-            </p>
+        <motion.p
+          custom={2}
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          className="mt-8 max-w-xl text-[15px] leading-relaxed text-muted-foreground md:text-base"
+        >
+          {t("hero.subtitle")}
+        </motion.p>
 
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a
-                href="#contact"
-                className="group inline-flex items-center gap-2 rounded-2xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"
-              >
-                {t("cta.quote")}
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-              <a
-                href="#work"
-                className="inline-flex items-center rounded-2xl border border-border px-6 py-3.5 text-sm font-semibold transition-colors hover:bg-white/5"
-              >
-                {t("cta.viewWork")}
-              </a>
-            </div>
-          </div>
+        <motion.div
+          custom={3}
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          className="mt-10 flex flex-wrap items-center gap-3"
+        >
+          <a
+            href="#contact"
+            className="group inline-flex items-center gap-2.5 rounded-sm bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-opacity hover:opacity-85"
+          >
+            {t("cta.quote")}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+          </a>
+          <a
+            href="#work"
+            className="inline-flex items-center gap-2.5 rounded-sm border border-border px-6 py-3.5 text-sm font-semibold transition-colors hover:border-white/25 hover:bg-white/[0.04]"
+          >
+            {t("cta.viewWork")}
+          </a>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.12, ease: "easeOut" }}
-          className="tile flex flex-col justify-between gap-4 p-5 md:col-span-5"
+          custom={4}
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          className="mt-14 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
         >
-          <BrowserMockup src={showcase.cover} alt={showcase.title[lang]} />
-          <div className="flex items-end gap-4">
-            <PhoneMockup
-              src={secondary.cover}
-              alt={secondary.title[lang]}
-              className="h-28 w-[4.25rem] shrink-0"
-            />
-            <div className="flex flex-wrap gap-1.5">
-              {showcase.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-border px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
+          <ArrowDown className="h-3.5 w-3.5" />
+          {t("hero.scroll")}
         </motion.div>
       </div>
     </section>
