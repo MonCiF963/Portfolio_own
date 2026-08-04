@@ -15,11 +15,11 @@ export function Hero() {
   const { t } = useI18n();
 
   return (
-    <section id="home" className="relative flex min-h-[92vh] items-end overflow-hidden">
+    <section id="home" className="relative flex min-h-[88vh] items-center overflow-hidden">
       {/* Ambient workspace loop — dark and blurred so type stays legible */}
       <div aria-hidden className="absolute inset-0 -z-10">
         <video
-          className="h-full w-full scale-105 object-cover opacity-40 blur-[3px]"
+          className="h-full w-full scale-105 object-cover opacity-25 blur-[4px]"
           src="/media/hero-loop.mp4"
           poster="/media/hero-poster.jpg"
           autoPlay
@@ -28,11 +28,12 @@ export function Hero() {
           playsInline
           preload="metadata"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/80" />
+        <div className="absolute inset-0 bg-grid opacity-40" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-border" />
       </div>
 
-      <div className="mx-auto w-full max-w-6xl px-5 pb-16 pt-32 md:pb-24 md:pt-40">
+      <div className="mx-auto w-full max-w-6xl px-5 pb-16 pt-28 md:pb-20 md:pt-32">
         <motion.div
           custom={0}
           variants={rise}
@@ -95,7 +96,7 @@ export function Hero() {
           variants={rise}
           initial="hidden"
           animate="show"
-          className="mt-16 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+          className="mt-14 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
         >
           <ArrowDown className="h-3.5 w-3.5" />
           {t("hero.scroll")}
