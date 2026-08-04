@@ -9,6 +9,7 @@ const filters: { id: "all" | ProjectCategory; key: string }[] = [
   { id: "all", key: "portfolio.filter.all" },
   { id: "company", key: "portfolio.filter.company" },
   { id: "restaurant", key: "portfolio.filter.restaurant" },
+  { id: "doctor", key: "portfolio.filter.doctor" },
   { id: "realestate", key: "portfolio.filter.realestate" },
   { id: "landing", key: "portfolio.filter.landing" },
   { id: "dashboard", key: "portfolio.filter.dashboard" },
