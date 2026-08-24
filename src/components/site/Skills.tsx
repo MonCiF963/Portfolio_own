@@ -4,7 +4,9 @@ import { useI18n } from "@/lib/i18n";
 
 const icon = (slug: string) => `https://cdn.simpleicons.org/${slug}/ffffff`;
 
-const groups = [
+type Tool = { name: string; slug?: string; mark?: string };
+
+const groups: { key: string; items: Tool[] }[] = [
   {
     key: "skills.web",
     items: [
@@ -20,15 +22,15 @@ const groups = [
     key: "skills.design",
     items: [
       { name: "Figma", slug: "figma" },
-      { name: "Photoshop", slug: "adobephotoshop" },
-      { name: "Illustrator", slug: "adobeillustrator" },
+      { name: "Photoshop", mark: "Ps" },
+      { name: "Illustrator", mark: "Ai" },
     ],
   },
   {
     key: "skills.video",
     items: [
-      { name: "Premiere Pro", slug: "adobepremierepro" },
-      { name: "After Effects", slug: "adobeaftereffects" },
+      { name: "Premiere Pro", mark: "Pr" },
+      { name: "After Effects", mark: "Ae" },
       { name: "DaVinci Resolve", slug: "davinciresolve" },
     ],
   },
