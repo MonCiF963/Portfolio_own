@@ -6,6 +6,7 @@ import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Services } from "@/components/site/Services";
+import { Skills } from "@/components/site/Skills";
 import { Portfolio } from "@/components/site/Portfolio";
 import { About } from "@/components/site/About";
 import { Contact } from "@/components/site/Contact";
