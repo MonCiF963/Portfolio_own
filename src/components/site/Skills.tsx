@@ -59,15 +59,24 @@ export function Skills() {
               </span>
               <ul className="mt-7 grid grid-cols-3 gap-x-4 gap-y-8">
                 {g.items.map((it) => (
-                  <li key={it.slug} className="group flex flex-col items-center gap-3 text-center">
-                    <img
-                      src={icon(it.slug)}
-                      alt={it.name}
-                      loading="lazy"
-                      width={28}
-                      height={28}
-                      className="h-7 w-7 opacity-55 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:opacity-100"
-                    />
+                  <li key={it.name} className="group flex flex-col items-center gap-3 text-center">
+                    {it.slug ? (
+                      <img
+                        src={icon(it.slug)}
+                        alt={it.name}
+                        loading="lazy"
+                        width={28}
+                        height={28}
+                        className="h-7 w-7 opacity-55 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                      />
+                    ) : (
+                      <span
+                        aria-hidden
+                        className="grid h-7 w-7 place-items-center rounded-[3px] border border-border font-mono text-[11px] font-semibold text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-white/30 group-hover:text-foreground"
+                      >
+                        {it.mark}
+                      </span>
+                    )}
                     <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground transition-colors group-hover:text-foreground">
                       {it.name}
                     </span>
