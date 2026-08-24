@@ -2,7 +2,13 @@ import { motion } from "framer-motion";
 import { SectionHeader } from "./SectionHeader";
 import { useI18n } from "@/lib/i18n";
 
-const icon = (slug: string) => `https://cdn.simpleicons.org/${slug}/ffffff`;
+const icon = (slug: string) => `https://cdn.simpleicons.org/${slug}`;
+
+const groupAccent = [
+  "from-acc-blue/25 text-acc-blue border-acc-blue/30",
+  "from-acc-purple/25 text-acc-purple border-acc-purple/30",
+  "from-acc-cyan/25 text-acc-cyan border-acc-cyan/30",
+];
 
 type Tool = { name: string; slug?: string; mark?: string };
 
