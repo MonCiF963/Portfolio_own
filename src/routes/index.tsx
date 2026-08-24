@@ -42,6 +42,7 @@ function Index() {
         <main>
           <Hero />
           <Services />
+          <Skills />
           <Portfolio />
           <About />
           <Contact />
