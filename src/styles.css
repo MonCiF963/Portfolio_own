@@ -153,9 +153,9 @@
 }
 
 @utility glass-strong {
-  background: color-mix(in oklab, var(--background) 88%, transparent);
-  backdrop-filter: blur(20px) saturate(125%);
-  border: 1px solid color-mix(in oklab, white 9%, transparent);
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+  backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid color-mix(in oklab, var(--acc-blue) 16%, transparent);
 }
 
 /* Sharp panel — subtle radius, hairline border. */
@@ -176,10 +176,20 @@
   color: transparent;
 }
 
+/* Animated multi-hue headline gradient */
+@utility text-gradient-flow {
+  background: linear-gradient(100deg, var(--acc-purple), var(--acc-blue), var(--acc-cyan), var(--acc-emerald), var(--acc-purple));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hue-flow 12s linear infinite;
+}
+
 @utility bg-grid {
   background-image:
-    linear-gradient(to right, color-mix(in oklab, white 3%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, white 3%, transparent) 1px, transparent 1px);
+    linear-gradient(to right, color-mix(in oklab, var(--acc-blue) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--acc-purple) 9%, transparent) 1px, transparent 1px);
   background-size: 88px 88px;
 }
 
@@ -189,6 +199,75 @@
 
 @utility bg-brand-gradient {
   background-image: linear-gradient(135deg, var(--acc-purple) 0%, var(--acc-blue) 55%, var(--acc-cyan) 100%);
+}
+
+/* Vibrant fill for primary actions */
+@utility btn-spectrum {
+  background-image: linear-gradient(100deg, var(--acc-purple), var(--acc-blue) 55%, var(--acc-cyan));
+  background-size: 200% 100%;
+  color: white;
+  box-shadow: 0 10px 34px -14px color-mix(in oklab, var(--acc-blue) 80%, transparent);
+  transition: background-position 0.6s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  &:hover {
+    background-position: 100% 0;
+    box-shadow: 0 14px 42px -12px color-mix(in oklab, var(--acc-purple) 85%, transparent);
+    transform: translateY(-1px);
+  }
+}
+
+/* Hairline gradient border on a dark panel */
+@utility edge-spectrum {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(140deg, color-mix(in oklab, var(--acc-purple) 70%, transparent), color-mix(in oklab, var(--acc-blue) 55%, transparent) 45%, color-mix(in oklab, var(--acc-cyan) 45%, transparent) 70%, transparent 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@utility glow-blue {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--acc-blue) 28%, transparent), 0 18px 50px -22px color-mix(in oklab, var(--acc-blue) 70%, transparent);
+}
+
+@utility glow-purple {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--acc-purple) 28%, transparent), 0 18px 50px -22px color-mix(in oklab, var(--acc-purple) 70%, transparent);
+}
+
+@utility glow-emerald {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--acc-emerald) 28%, transparent), 0 18px 50px -22px color-mix(in oklab, var(--acc-emerald) 70%, transparent);
+}
+
+/* Soft colorful ambience */
+@utility bg-aurora {
+  background-image:
+    radial-gradient(38rem 26rem at 12% 0%, color-mix(in oklab, var(--acc-purple) 26%, transparent), transparent 70%),
+    radial-gradient(34rem 24rem at 88% 8%, color-mix(in oklab, var(--acc-blue) 24%, transparent), transparent 70%),
+    radial-gradient(30rem 22rem at 70% 92%, color-mix(in oklab, var(--acc-cyan) 18%, transparent), transparent 72%),
+    radial-gradient(28rem 20rem at 8% 88%, color-mix(in oklab, var(--acc-emerald) 16%, transparent), transparent 72%);
+}
+
+@utility rule-spectrum {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(90deg, transparent, color-mix(in oklab, var(--acc-purple) 60%, transparent), color-mix(in oklab, var(--acc-blue) 60%, transparent), color-mix(in oklab, var(--acc-cyan) 55%, transparent), transparent);
+}
+
+@keyframes hue-flow {
+  0% { background-position: 0% 0; }
+  100% { background-position: 300% 0; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2%, -3%, 0) scale(1.07); }
 }
 
 @keyframes pulse-ring {
@@ -207,8 +286,10 @@
 
 .animate-pulse-ring { animation: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 .animate-heartbeat { animation: heartbeat 2.4s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 18s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-pulse-ring, .animate-heartbeat { animation: none; }
+  .animate-pulse-ring, .animate-heartbeat, .animate-float-slow { animation: none; }
+  .text-gradient-flow { animation: none; }
   html { scroll-behavior: auto; }
 }
