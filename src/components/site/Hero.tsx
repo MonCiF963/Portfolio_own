@@ -16,10 +16,10 @@ export function Hero() {
 
   return (
     <section id="home" className="relative flex min-h-[88vh] items-center overflow-hidden">
-      {/* Ambient workspace loop — dark and blurred so type stays legible */}
+      {/* Ambient workspace loop — dark and colorized so type stays legible */}
       <div aria-hidden className="absolute inset-0 -z-10">
         <video
-          className="h-full w-full scale-105 object-cover opacity-25 blur-[4px]"
+          className="h-full w-full scale-105 object-cover opacity-30 blur-[3px] saturate-150"
           src="/media/hero-loop.mp4"
           poster="/media/hero-poster.jpg"
           autoPlay
@@ -28,9 +28,12 @@ export function Hero() {
           playsInline
           preload="metadata"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/80" />
-        <div className="absolute inset-0 bg-grid opacity-40" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-border" />
+        <div className="absolute inset-0 bg-aurora opacity-90 mix-blend-screen" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/88 to-background/70" />
+        <div className="absolute inset-0 bg-grid opacity-60" />
+        <div className="animate-float-slow absolute -left-32 top-1/4 h-[26rem] w-[26rem] rounded-full bg-acc-purple/25 blur-[130px]" />
+        <div className="animate-float-slow absolute -right-24 bottom-0 h-[24rem] w-[24rem] rounded-full bg-acc-cyan/20 blur-[130px] [animation-delay:-8s]" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-accent-line opacity-60" />
       </div>
 
       <div className="mx-auto w-full max-w-6xl px-5 pb-16 pt-28 md:pb-20 md:pt-32">
@@ -39,10 +42,10 @@ export function Hero() {
           variants={rise}
           initial="hidden"
           animate="show"
-          className="flex items-center gap-3"
+          className="flex w-fit items-center gap-3 rounded-sm border border-acc-emerald/30 bg-acc-emerald/[0.07] px-3 py-1.5"
         >
-          <span className="h-1.5 w-1.5 bg-acc-emerald" />
-          <span className="font-mono text-[11px] uppercase tracking-[0.26em] text-muted-foreground">
+          <span className="animate-pulse-ring h-1.5 w-1.5 rounded-full bg-acc-emerald" />
+          <span className="font-mono text-[11px] uppercase tracking-[0.26em] text-acc-emerald">
             {t("hero.badge")}
           </span>
         </motion.div>
@@ -56,7 +59,7 @@ export function Hero() {
         >
           {t("hero.title.1")}
           <br />
-          <span className="text-muted-foreground">{t("hero.title.2")}</span>
+          <span className="text-gradient-flow">{t("hero.title.2")}</span>
         </motion.h1>
 
         <motion.p
@@ -64,7 +67,7 @@ export function Hero() {
           variants={rise}
           initial="hidden"
           animate="show"
-          className="mt-8 max-w-xl text-[15px] leading-relaxed text-muted-foreground md:text-base"
+          className="mt-8 max-w-xl border-s-2 border-acc-blue/50 ps-4 text-[15px] leading-relaxed text-muted-foreground md:text-base"
         >
           {t("hero.subtitle")}
         </motion.p>
@@ -78,14 +81,14 @@ export function Hero() {
         >
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2.5 rounded-sm bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-opacity hover:opacity-85"
+            className="btn-spectrum group inline-flex items-center gap-2.5 rounded-sm px-6 py-3.5 text-sm font-semibold"
           >
             {t("cta.quote")}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
           </a>
           <a
             href="#work"
-            className="inline-flex items-center gap-2.5 rounded-sm border border-border px-6 py-3.5 text-sm font-semibold transition-colors hover:border-white/25 hover:bg-white/[0.04]"
+            className="edge-spectrum inline-flex items-center gap-2.5 rounded-sm bg-white/[0.03] px-6 py-3.5 text-sm font-semibold transition-colors hover:bg-white/[0.07]"
           >
             {t("cta.viewWork")}
           </a>
