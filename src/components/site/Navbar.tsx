@@ -38,11 +38,11 @@ export function Navbar() {
         scrolled ? "glass-strong border-border" : "border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:h-[4.5rem]">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 md:h-[4.5rem] md:px-8">
         <a href="#home" className="group flex items-center gap-2.5">
-          <span className="h-4 w-4 bg-brand-gradient" />
-          <span className="font-display text-[17px] font-semibold tracking-[-0.02em]">
-            MoCreat
+          <span className="h-4 w-4 bg-acc-green" />
+          <span className="font-display text-[16px] uppercase tracking-[-0.01em]">
+            Mo<span className="text-acc-green">Creat</span>
           </span>
         </a>
 
@@ -51,7 +51,7 @@ export function Navbar() {
             <a
               key={l.id}
               href={`#${l.id}`}
-              className="relative py-1 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:scale-x-0 after:bg-accent-line after:transition-transform after:duration-300 hover:after:scale-x-100"
+              className="relative py-1 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:scale-x-0 after:bg-acc-green after:transition-transform after:duration-300 hover:after:scale-x-100"
             >
               {t(l.key)}
             </a>
@@ -62,7 +62,7 @@ export function Navbar() {
           <LanguageSwitcher />
           <a
             href="#contact"
-            className="hidden rounded-sm bg-foreground px-4 py-2 text-[13px] font-semibold text-background transition-opacity hover:opacity-85 md:inline-flex"
+            className="hidden rounded-sm bg-acc-green px-4 py-2.5 font-display text-[10px] uppercase tracking-[0.16em] text-background transition-colors hover:bg-acc-cyan md:inline-flex"
           >
             {t("cta.contactMe")}
           </a>
