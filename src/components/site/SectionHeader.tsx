@@ -20,12 +20,12 @@ export function SectionHeader({
       className={`max-w-2xl ${className}`}
     >
       <div className="flex items-center gap-3">
-        <span className="h-px w-8 bg-accent-line" />
-        <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+        <span className="h-1.5 w-1.5 bg-acc-green" />
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-acc-green">
           {eyebrow}
         </span>
       </div>
-      <h2 className="mt-5 font-display text-3xl font-semibold leading-[1.08] tracking-[-0.02em] text-balance md:text-[2.6rem]">
+      <h2 className="mt-4 font-display text-3xl uppercase leading-[0.95] tracking-[-0.025em] text-balance md:text-[3.2rem]">
         {title}
       </h2>
       {subtitle && (
