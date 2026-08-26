@@ -21,6 +21,8 @@ const translations: Record<Lang, Dict> = {
     "hero.title.2": "تبني حضورك الرقمي",
     "hero.subtitle": "تصميم وتطوير مواقع سريعة ومتجاوبة، ومحتوى بصري يرافقها.",
     "hero.scroll": "تابع للأسفل",
+    "hero.side.label": "مطوّر ويب مستقل",
+    "hero.side.role": "تطوير مواقع · تصميم واجهات · مونتاج وجرافيك",
 
     "services.eyebrow": "الخدمات",
     "services.title": "ما أقدّمه",
@@ -29,16 +31,13 @@ const translations: Record<Lang, Dict> = {
     "services.web.d": "مواقع مبنية من الصفر، سريعة ومتجاوبة.",
     "services.uiux": "تصميم واجهات",
     "services.uiux.d": "واجهات واضحة تسهّل التنقّل.",
-    "services.graphic": "تصميم جرافيك",
-    "services.graphic.d": "شعارات وهويات بصرية.",
-    "services.video": "مونتاج فيديو",
-    "services.video.d": "فيديوهات قصيرة ونظيفة.",
+    "services.videodesign": "فيديو وجرافيك",
+    "services.videodesign.d": "مونتاج فيديو وتصميم جرافيك للعلامات والمحتوى.",
 
     "skills.eyebrow": "الأدوات",
     "skills.title": "أعمل بهذه التقنيات",
-    "skills.web": "الويب",
-    "skills.design": "التصميم",
-    "skills.video": "الفيديو",
+    "skills.web": "تطوير الويب",
+    "skills.video": "الفيديو والتصميم",
 
     "portfolio.eyebrow": "الأعمال",
     "portfolio.title": "مشاريع مختارة",
@@ -53,10 +52,10 @@ const translations: Record<Lang, Dict> = {
     "portfolio.filter.ecommerce": "متاجر",
 
     "about.eyebrow": "نبذة",
-    "about.title": "منصف — مطوّر ويب ومصمّم",
+    "about.title": "منصف",
     "about.p1":
-      "أبني مواقع للأنشطة والعلامات الصغيرة، وأهتمّ بالتفاصيل: المسافات، الخطوط، سرعة التحميل، وسلوك الواجهة على كل شاشة.",
-    "about.p2": "تتعامل معي مباشرة من الفكرة إلى الإطلاق.",
+      "طالب إعلام آلي متخصّص في الأمن السيبراني، وأعمل في الوقت نفسه مطوّر ويب ومبدع رقمي مستقل.",
+    "about.p2": "أهتمّ بالتفاصيل — المسافات، الخطوط، سرعة التحميل — وتتعامل معي مباشرة من الفكرة إلى الإطلاق.",
     "about.focus": "تركيزي",
     "about.focus1": "أداء وسرعة",
     "about.focus2": "تصميم نظيف",
@@ -89,6 +88,8 @@ const translations: Record<Lang, Dict> = {
     "hero.subtitle":
       "Conception et développement de sites rapides et responsives, avec le contenu visuel qui va avec.",
     "hero.scroll": "Défiler",
+    "hero.side.label": "Développeur web freelance",
+    "hero.side.role": "Développement web · UI/UX · Vidéo & graphisme",
 
     "services.eyebrow": "Services",
     "services.title": "Ce que je fais",
@@ -97,16 +98,13 @@ const translations: Record<Lang, Dict> = {
     "services.web.d": "Des sites sur mesure, rapides et responsives.",
     "services.uiux": "Design UI / UX",
     "services.uiux.d": "Des interfaces claires et lisibles.",
-    "services.graphic": "Design graphique",
-    "services.graphic.d": "Logos et identités visuelles.",
-    "services.video": "Montage vidéo",
-    "services.video.d": "Vidéos courtes et nettes.",
+    "services.videodesign": "Vidéo & graphisme",
+    "services.videodesign.d": "Montage vidéo et design graphique pour marques et contenus.",
 
     "skills.eyebrow": "Outils",
     "skills.title": "Ce avec quoi je travaille",
-    "skills.web": "Web",
-    "skills.design": "Design",
-    "skills.video": "Vidéo",
+    "skills.web": "Développement web",
+    "skills.video": "Vidéo & design",
 
     "portfolio.eyebrow": "Projets",
     "portfolio.title": "Projets sélectionnés",
@@ -121,10 +119,10 @@ const translations: Record<Lang, Dict> = {
     "portfolio.filter.ecommerce": "E-commerce",
 
     "about.eyebrow": "À propos",
-    "about.title": "Moncif — développeur web & designer",
+    "about.title": "Moncif",
     "about.p1":
-      "Je construis des sites pour des indépendants et des petites marques, en soignant les détails : espacements, typographie, temps de chargement, comportement sur chaque écran.",
-    "about.p2": "Vous échangez directement avec moi, du concept à la mise en ligne.",
+      "Étudiant en informatique spécialisé en cybersécurité, et en parallèle développeur web et créateur digital freelance.",
+    "about.p2": "Je soigne les détails — espacements, typographie, temps de chargement — et vous échangez directement avec moi, du concept à la mise en ligne.",
     "about.focus": "Mes priorités",
     "about.focus1": "Performance",
     "about.focus2": "Design propre",
