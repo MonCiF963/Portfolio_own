@@ -15,95 +15,105 @@ export function Hero() {
   const { t } = useI18n();
 
   return (
-    <section id="home" className="relative flex min-h-[88vh] items-center overflow-hidden">
-      {/* Ambient workspace loop — dark and colorized so type stays legible */}
-      <div aria-hidden className="absolute inset-0 -z-10">
-        <video
-          className="h-full w-full scale-105 object-cover opacity-30 blur-[3px] saturate-150"
-          src="/media/hero-loop.mp4"
-          poster="/media/hero-poster.jpg"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
-        <div className="absolute inset-0 bg-aurora opacity-90 mix-blend-screen" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/88 to-background/70" />
-        <div className="absolute inset-0 bg-grid opacity-60" />
-        <div className="animate-float-slow absolute -left-32 top-1/4 h-[26rem] w-[26rem] rounded-full bg-acc-purple/25 blur-[130px]" />
-        <div className="animate-float-slow absolute -right-24 bottom-0 h-[24rem] w-[24rem] rounded-full bg-acc-cyan/20 blur-[130px] [animation-delay:-8s]" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-accent-line opacity-60" />
-      </div>
-
-      <div className="mx-auto w-full max-w-6xl px-5 pb-16 pt-28 md:pb-20 md:pt-32">
+    <section id="home" className="px-4 pb-8 pt-24 md:px-8 md:pt-28">
+      <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-12">
+        {/* Main hero block — coding workspace loop, headline anchored bottom */}
         <motion.div
           custom={0}
           variants={rise}
           initial="hidden"
           animate="show"
-          className="flex w-fit items-center gap-3 rounded-sm border border-acc-emerald/30 bg-acc-emerald/[0.07] px-3 py-1.5"
+          className="group relative flex min-h-[26rem] flex-col overflow-hidden rounded-[1.5rem] border border-white/[0.07] bg-card/40 md:col-span-8 md:min-h-[34rem]"
         >
-          <span className="animate-pulse-ring h-1.5 w-1.5 rounded-full bg-acc-emerald" />
-          <span className="font-mono text-[11px] uppercase tracking-[0.26em] text-acc-emerald">
-            {t("hero.badge")}
-          </span>
+          <div aria-hidden className="absolute inset-0 z-0">
+            <video
+              className="h-full w-full object-cover opacity-40 transition-transform duration-[1200ms] group-hover:scale-105"
+              src="/media/hero-loop.mp4"
+              poster="/media/hero-poster.jpg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
+          </div>
+
+          <div className="relative z-10 mt-auto p-7 md:p-11">
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-8 bg-acc-green" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-acc-green">
+                {t("hero.badge")}
+              </span>
+            </div>
+
+            <h1 className="font-display text-[2.4rem] uppercase leading-[0.88] tracking-[-0.03em] text-balance sm:text-6xl md:text-[5.4rem]">
+              {t("hero.title.1")}{" "}
+              <span className="bg-gradient-to-r from-acc-green via-acc-cyan to-acc-purple bg-clip-text text-transparent">
+                {t("hero.title.2")}
+              </span>
+            </h1>
+
+            <p className="mt-6 max-w-md text-[15px] font-medium leading-relaxed text-muted-foreground md:text-lg">
+              {t("hero.subtitle")}
+            </p>
+
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <a
+                href="#contact"
+                className="group/cta inline-flex items-center gap-2.5 rounded-sm bg-acc-green px-7 py-4 font-display text-[11px] uppercase tracking-[0.18em] text-background transition-all hover:-translate-y-0.5 hover:bg-acc-cyan"
+              >
+                {t("cta.quote")}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1 rtl:rotate-180 rtl:group-hover/cta:-translate-x-1" />
+              </a>
+              <a
+                href="#work"
+                className="inline-flex items-center gap-2.5 rounded-sm border border-white/12 px-7 py-4 font-display text-[11px] uppercase tracking-[0.18em] transition-colors hover:border-acc-green/60 hover:text-acc-green"
+              >
+                {t("cta.viewWork")}
+              </a>
+            </div>
+          </div>
         </motion.div>
 
-        <motion.h1
-          custom={1}
-          variants={rise}
-          initial="hidden"
-          animate="show"
-          className="mt-7 max-w-4xl font-display text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] text-balance sm:text-6xl md:text-[5.2rem]"
-        >
-          {t("hero.title.1")}
-          <br />
-          <span className="text-gradient-flow">{t("hero.title.2")}</span>
-        </motion.h1>
-
-        <motion.p
-          custom={2}
-          variants={rise}
-          initial="hidden"
-          animate="show"
-          className="mt-8 max-w-xl border-s-2 border-acc-blue/50 ps-4 text-[15px] leading-relaxed text-muted-foreground md:text-base"
-        >
-          {t("hero.subtitle")}
-        </motion.p>
-
-        <motion.div
-          custom={3}
-          variants={rise}
-          initial="hidden"
-          animate="show"
-          className="mt-10 flex flex-wrap items-center gap-3"
-        >
-          <a
-            href="#contact"
-            className="btn-spectrum group inline-flex items-center gap-2.5 rounded-sm px-6 py-3.5 text-sm font-semibold"
+        {/* Side stack — identity + availability */}
+        <div className="grid gap-4 md:col-span-4">
+          <motion.div
+            custom={1}
+            variants={rise}
+            initial="hidden"
+            animate="show"
+            className="flex flex-col justify-between gap-10 rounded-[1.5rem] bg-acc-green p-8 text-background md:p-9"
           >
-            {t("cta.quote")}
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
-          </a>
-          <a
-            href="#work"
-            className="edge-spectrum inline-flex items-center gap-2.5 rounded-sm bg-white/[0.03] px-6 py-3.5 text-sm font-semibold transition-colors hover:bg-white/[0.07]"
-          >
-            {t("cta.viewWork")}
-          </a>
-        </motion.div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.28em] opacity-70">
+              {t("hero.side.label")}
+            </span>
+            <div>
+              <h2 className="font-display text-4xl uppercase leading-[0.9] tracking-[-0.02em] md:text-5xl">
+                Moncif
+              </h2>
+              <p className="mt-3 text-[15px] font-semibold leading-snug opacity-80">
+                {t("hero.side.role")}
+              </p>
+            </div>
+          </motion.div>
 
-        <motion.div
-          custom={4}
-          variants={rise}
-          initial="hidden"
-          animate="show"
-          className="mt-14 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
-        >
-          <ArrowDown className="h-3.5 w-3.5" />
-          {t("hero.scroll")}
-        </motion.div>
+          <motion.div
+            custom={2}
+            variants={rise}
+            initial="hidden"
+            animate="show"
+            className="flex items-center justify-between gap-4 rounded-[1.5rem] border border-acc-cyan/25 bg-acc-cyan/[0.06] p-8 md:p-9"
+          >
+            <div className="flex items-center gap-3">
+              <span className="animate-pulse-ring h-2 w-2 rounded-full bg-acc-cyan" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-acc-cyan">
+                {t("contact.available")}
+              </span>
+            </div>
+            <ArrowDown className="h-4 w-4 shrink-0 text-acc-cyan" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
