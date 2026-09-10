@@ -47,7 +47,7 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="font-display text-[2.4rem] uppercase leading-[1.12] tracking-[-0.02em] text-balance sm:text-6xl md:text-[5.4rem]">
+            <h1 className="font-display text-[2.2rem] uppercase leading-[1.3] tracking-[-0.02em] md:leading-[1.1] text-balance sm:text-6xl md:text-[5.4rem]">
               {t("hero.title.1")}{" "}
               <span className="bg-gradient-to-r from-acc-green via-acc-cyan to-acc-purple bg-clip-text text-transparent">
                 {t("hero.title.2")}
