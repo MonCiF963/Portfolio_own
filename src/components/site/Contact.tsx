@@ -40,21 +40,21 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="border-t border-border px-5 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <section id="contact" className="px-4 py-14 md:px-8 md:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeader
             eyebrow={t("contact.eyebrow")}
             title={t("contact.title")}
             subtitle={t("contact.subtitle")}
           />
-          <div className="inline-flex items-center gap-2.5 self-start rounded-sm border border-border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground md:self-end">
-            <span className="h-1.5 w-1.5 bg-acc-emerald" />
+          <div className="inline-flex items-center gap-2.5 self-start rounded-sm border border-acc-green/30 bg-acc-green/[0.06] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-acc-green md:self-end">
+            <span className="h-1.5 w-1.5 bg-acc-green" />
             {t("contact.available")}
           </div>
         </div>
 
-        <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-px overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-3">
           {channels.map((c, i) => (
             <motion.a
               key={i}
@@ -67,9 +67,9 @@ export function Contact() {
               transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
               className="group relative flex items-center justify-between gap-4 bg-background p-7 transition-colors hover:bg-white/[0.03]"
             >
-              <span className="absolute inset-x-0 top-0 h-px scale-x-0 bg-accent-line transition-transform duration-500 group-hover:scale-x-100" />
+              <span className="absolute inset-x-0 top-0 h-px scale-x-0 bg-acc-green transition-transform duration-500 group-hover:scale-x-100" />
               <div className="flex min-w-0 items-center gap-4">
-                <c.icon className={`h-4.5 w-4.5 shrink-0 ${c.accent}`} />
+                <c.icon className={`h-5 w-5 shrink-0 ${c.accent}`} />
                 <div className="min-w-0">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                     {c.label}
@@ -79,7 +79,7 @@ export function Contact() {
                   </div>
                 </div>
               </div>
-              <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-acc-green" />
             </motion.a>
           ))}
         </div>
