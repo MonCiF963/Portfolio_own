@@ -5,7 +5,7 @@ import { useI18n } from "@/lib/i18n";
 // Official brand marks, served in their real colors — never recolored or redrawn.
 const logo = (slug: string) => `https://cdn.simpleicons.org/${slug}`;
 
-type Tool = { name: string; slug: string };
+type Tool = { name: string; slug?: string; src?: string };
 
 const webStack: Tool[] = [
   { name: "React", slug: "react" },
@@ -20,10 +20,14 @@ const webStack: Tool[] = [
   { name: "Figma", slug: "figma" },
 ];
 
+// Adobe marks are not served by Simple Icons — use Devicon's official brand SVGs.
+const devicon = (slug: string, variant = "original") =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${slug}/${slug}-${variant}.svg`;
+
 const creativeStack: Tool[] = [
-  { name: "Adobe Photoshop", slug: "adobephotoshop" },
-  { name: "Adobe Premiere Pro", slug: "adobepremierepro" },
-  { name: "Adobe After Effects", slug: "adobeaftereffects" },
+  { name: "Adobe Photoshop", src: devicon("photoshop", "plain") },
+  { name: "Adobe Premiere Pro", src: devicon("premierepro", "plain") },
+  { name: "Adobe After Effects", src: devicon("aftereffects", "plain") },
   { name: "DaVinci Resolve", slug: "davinciresolve" },
 ];
 
@@ -32,7 +36,7 @@ function LogoTile({ tool }: { tool: Tool }) {
     <li className="group flex flex-col items-center gap-3 text-center">
       <span className="grid h-16 w-full place-items-center rounded-sm border border-white/[0.07] bg-white/[0.02] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-acc-green/40 group-hover:bg-white/[0.05]">
         <img
-          src={logo(tool.slug)}
+          src={tool.src ?? logo(tool.slug!)}
           alt={`${tool.name} logo`}
           loading="lazy"
           width={30}
@@ -71,7 +75,7 @@ export function Skills() {
             </div>
             <ul className="mt-8 grid grid-cols-3 gap-4 sm:grid-cols-5">
               {webStack.map((tool) => (
-                <LogoTile key={tool.slug} tool={tool} />
+                <LogoTile key={tool.name} tool={tool} />
               ))}
             </ul>
           </motion.div>
@@ -91,7 +95,7 @@ export function Skills() {
             </div>
             <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {creativeStack.map((tool) => (
-                <LogoTile key={tool.slug} tool={tool} />
+                <LogoTile key={tool.name} tool={tool} />
               ))}
             </ul>
           </motion.div>
