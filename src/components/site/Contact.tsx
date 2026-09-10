@@ -12,7 +12,7 @@ export function Contact() {
       label: t("contact.whatsapp"),
       value: "+213 558 619 475",
       href: "https://wa.me/213558619475",
-      accent: "text-acc-emerald",
+      accent: "text-acc-green",
     },
     {
       icon: Mail,
