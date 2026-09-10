@@ -20,15 +20,17 @@ const webStack: Tool[] = [
   { name: "Figma", slug: "figma" },
 ];
 
-// Adobe marks are not served by Simple Icons — use Devicon's official brand SVGs.
-const devicon = (slug: string, variant = "original") =>
-  `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${slug}/${slug}-${variant}.svg`;
+// Official brand marks bundled locally so they always load in real colors.
+import photoshopLogo from "@/assets/tools/photoshop-original.svg";
+import premiereLogo from "@/assets/tools/premierepro-original.svg";
+import afterEffectsLogo from "@/assets/tools/aftereffects-original.svg";
+import davinciLogo from "@/assets/tools/davinciresolve.svg";
 
 const creativeStack: Tool[] = [
-  { name: "Adobe Photoshop", src: devicon("photoshop", "plain") },
-  { name: "Adobe Premiere Pro", src: devicon("premierepro", "plain") },
-  { name: "Adobe After Effects", src: devicon("aftereffects", "plain") },
-  { name: "DaVinci Resolve", slug: "davinciresolve" },
+  { name: "Adobe Photoshop", src: photoshopLogo },
+  { name: "Adobe Premiere Pro", src: premiereLogo },
+  { name: "Adobe After Effects", src: afterEffectsLogo },
+  { name: "DaVinci Resolve", src: davinciLogo },
 ];
 
 function LogoTile({ tool }: { tool: Tool }) {
