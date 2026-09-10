@@ -35,7 +35,7 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled ? "glass-strong border-border" : "border-transparent"
+        scrolled ? "glass-strong border-white/[0.08]" : "border-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 md:h-[4.5rem] md:px-8">
@@ -98,7 +98,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-3 rounded-sm bg-foreground px-4 py-3 text-center text-sm font-semibold text-background"
+              className="mt-3 rounded-sm bg-acc-green px-4 py-3 text-center font-display text-[11px] uppercase tracking-[0.16em] text-background"
             >
               {t("cta.contactMe")}
             </a>

@@ -47,7 +47,7 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="font-display text-[2.4rem] uppercase leading-[0.88] tracking-[-0.03em] text-balance sm:text-6xl md:text-[5.4rem]">
+            <h1 className="font-display text-[2.2rem] uppercase leading-[1.35] tracking-[-0.02em] md:leading-[1.22] text-balance sm:text-6xl md:text-[5.4rem]">
               {t("hero.title.1")}{" "}
               <span className="bg-gradient-to-r from-acc-green via-acc-cyan to-acc-purple bg-clip-text text-transparent">
                 {t("hero.title.2")}
@@ -83,7 +83,7 @@ export function Hero() {
             variants={rise}
             initial="hidden"
             animate="show"
-            className="flex flex-col justify-between gap-10 rounded-[1.5rem] bg-acc-green p-8 text-background md:p-9"
+            className="flex flex-col justify-end gap-6 rounded-[1.5rem] bg-acc-green p-8 text-background md:p-9"
           >
             <span className="font-mono text-[10px] uppercase tracking-[0.28em] opacity-70">
               {t("hero.side.label")}
