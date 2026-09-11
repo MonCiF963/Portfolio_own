@@ -2,29 +2,36 @@ import { motion } from "framer-motion";
 import { SectionHeader } from "./SectionHeader";
 import { useI18n } from "@/lib/i18n";
 
-// Official brand marks, served in their real colors — never recolored or redrawn.
-const logo = (slug: string) => `https://cdn.simpleicons.org/${slug}`;
-
-type Tool = { name: string; slug?: string; src?: string };
-
-const webStack: Tool[] = [
-  { name: "React", slug: "react" },
-  { name: "TypeScript", slug: "typescript" },
-  { name: "JavaScript", slug: "javascript" },
-  { name: "HTML5", slug: "html5" },
-  { name: "CSS3", slug: "css" },
-  { name: "Tailwind CSS", slug: "tailwindcss" },
-  { name: "Next.js", slug: "nextdotjs" },
-  { name: "Supabase", slug: "supabase" },
-  { name: "Git", slug: "git" },
-  { name: "Figma", slug: "figma" },
-];
-
 // Official brand marks bundled locally so they always load in real colors.
+import reactLogo from "@/assets/tools/react-original.svg";
+import typescriptLogo from "@/assets/tools/typescript-original.svg";
+import javascriptLogo from "@/assets/tools/javascript-original.svg";
+import htmlLogo from "@/assets/tools/html5-original.svg";
+import cssLogo from "@/assets/tools/css3-original.svg";
+import tailwindLogo from "@/assets/tools/tailwindcss-original.svg";
+import nextLogo from "@/assets/tools/nextjs-original.svg";
+import supabaseLogo from "@/assets/tools/supabase-original.svg";
+import gitLogo from "@/assets/tools/git-original.svg";
+import figmaLogo from "@/assets/tools/figma-original.svg";
 import photoshopLogo from "@/assets/tools/photoshop-original.svg";
 import premiereLogo from "@/assets/tools/premierepro-original.svg";
 import afterEffectsLogo from "@/assets/tools/aftereffects-original.svg";
 import davinciLogo from "@/assets/tools/davinciresolve.svg";
+
+type Tool = { name: string; src: string };
+
+const webStack: Tool[] = [
+  { name: "React", src: reactLogo },
+  { name: "TypeScript", src: typescriptLogo },
+  { name: "JavaScript", src: javascriptLogo },
+  { name: "HTML5", src: htmlLogo },
+  { name: "CSS3", src: cssLogo },
+  { name: "Tailwind CSS", src: tailwindLogo },
+  { name: "Next.js", src: nextLogo },
+  { name: "Supabase", src: supabaseLogo },
+  { name: "Git", src: gitLogo },
+  { name: "Figma", src: figmaLogo },
+];
 
 const creativeStack: Tool[] = [
   { name: "Adobe Photoshop", src: photoshopLogo },
@@ -38,7 +45,7 @@ function LogoTile({ tool }: { tool: Tool }) {
     <li className="group flex flex-col items-center gap-3 text-center">
       <span className="grid h-16 w-full place-items-center rounded-sm border border-white/[0.07] bg-white/[0.02] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-acc-green/40 group-hover:bg-white/[0.05]">
         <img
-          src={tool.src ?? logo(tool.slug!)}
+          src={tool.src}
           alt={`${tool.name} logo`}
           loading="lazy"
           width={30}
