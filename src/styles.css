@@ -304,17 +304,19 @@
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .text-stroke { -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.5); color: transparent; }
-.mesh-orb { background: conic-gradient(from 0deg, #8b5cf6, #ff6ba8, #ffb86b, #5eead4, #8b5cf6); opacity: 0.32; animation: spin-slow 24s linear infinite; }
+.mesh-orb { background: conic-gradient(from 0deg, #8b5cf6, #ff6ba8, #ffb86b, #5eead4, #8b5cf6); opacity: 0.28; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent); mask-image: radial-gradient(closest-side, #000 30%, transparent); }
+.mesh-static { background-image: linear-gradient(90deg, #f472b6, #ffb86b, #5eead4, #a78bfa); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.mesh-paused .mesh-text { animation-play-state: paused; }
+@media (max-width: 1023px) { .mesh-text { animation: none; } }
 .bg-dots { background-image: radial-gradient(circle, color-mix(in oklab, var(--acc-green) 70%, transparent) 1.2px, transparent 1.7px); background-size: 28px 28px; }
 .bg-dots-lit {
-  background-image: radial-gradient(circle, #fff 1.4px, transparent 2px); background-size: 28px 28px; opacity: 0.9;
-  -webkit-mask-image: radial-gradient(240px circle at var(--mx, 50%) var(--my, -20%), #000, transparent 70%);
-  mask-image: radial-gradient(240px circle at var(--mx, 50%) var(--my, -20%), #000, transparent 70%);
+  background-image: radial-gradient(circle, #fff 1.4px, transparent 2px); background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(closest-side, #000 15%, transparent); mask-image: radial-gradient(closest-side, #000 15%, transparent);
 }
-.grain { opacity: 0.06; mix-blend-mode: overlay; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+.grain { opacity: 0.035; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
 /* Focus-pull: hovered card stays sharp while its siblings defocus and desaturate */
-.focus-grid article { transition: filter 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-.focus-grid:has(article:hover) article:not(:hover) { filter: blur(2.5px) saturate(0.3) brightness(0.8); transform: scale(0.975); }
+.focus-grid article { transition: filter 0.4s ease, opacity 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.focus-grid:has(article:hover) article:not(:hover) { filter: saturate(0.3) brightness(0.75); opacity: 0.7; transform: scale(0.98); }
 @keyframes mesh-drift { 0% { background-position: 0% 20%; } 100% { background-position: 100% 80%; } }
 @keyframes spin-slow { to { transform: translate(-50%, -50%) rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .mesh-text, .mesh-orb { animation: none; } }

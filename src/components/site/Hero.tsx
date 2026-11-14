@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
@@ -27,20 +27,38 @@ function Words({ text, className = "", offset = 0 }: { text: string; className?:
 }
 
 function LanyardScene() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  const [ready, setReady] = useState(false);
+  const [wide, setWide] = useState(true);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const sync = () => setWide(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    // Defer the heavy 3D chunk until the page has painted and the title animation is under way.
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+    const go = () => !saveData && setReady(true);
+    const hasIdle = "requestIdleCallback" in window;
+    const id = hasIdle ? window.requestIdleCallback(go, { timeout: 1800 }) : window.setTimeout(go, 900);
+    return () => {
+      mq.removeEventListener("change", sync);
+      if (hasIdle) window.cancelIdleCallback(id);
+      else clearTimeout(id);
+    };
+  }, []);
+  if (!ready) return null;
   return (
     <Suspense fallback={null}>
       <Lanyard
-        frontImage="/card-front.png"
-        backImage="/card-back.png"
+        frontImage="/card-front.jpg"
+        backImage="/card-back.jpg"
         strapImage="/band.png"
         finish="holographic"
         metal="gold"
         cardColor="#150d24"
         strapColor="#1b1030"
-        size={0.6}
+        size={wide ? 0.58 : 0.7}
+        anchor={wide ? "right" : "center"}
+        breeze={0}
       />
     </Suspense>
   );
@@ -49,11 +67,19 @@ function LanyardScene() {
 export function Hero() {
   const { t, lang } = useI18n();
   const first = t("hero.title.1");
+  const sec = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = sec.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => el.classList.toggle("mesh-paused", !e.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <section id="home" className="relative px-4 pb-6 pt-24 md:px-8 md:pt-28">
+    <section id="home" ref={sec} className="relative px-4 pb-6 pt-24 md:px-8 md:pt-28 lg:min-h-[46rem]">
       <div className="mx-auto grid max-w-7xl items-center gap-2 lg:grid-cols-12">
-        <div className="relative z-10 lg:col-span-7">
+        <div className="relative z-10 lg:pointer-events-none lg:col-span-7 [&_a]:pointer-events-auto">
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
@@ -117,16 +143,13 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <div className="relative h-[30rem] lg:col-span-5 lg:h-[42rem]">
-          <div aria-hidden className="mesh-orb absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl" />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
-            className="relative h-full w-full"
-          >
-            <LanyardScene />
-          </motion.div>
+      </div>
+
+      {/* Lanyard layer: fills the whole hero on desktop so the card can be dragged anywhere; stacked below the text on mobile */}
+      <div className="relative h-[30rem] lg:absolute lg:inset-0 lg:h-auto">
+        <div aria-hidden className="mesh-orb absolute right-[6%] top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full" />
+        <div className="relative h-full w-full">
+          <LanyardScene />
         </div>
       </div>
     </section>

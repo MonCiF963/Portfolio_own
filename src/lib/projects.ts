@@ -26,7 +26,7 @@ export interface Project {
 // Placeholder screenshots — swap `cover` and `liveUrl` for real work when ready.
 // `liveUrl` powers the "View Demo" button; without it the button points to #contact.
 const shot = (seed: string) =>
-  `https://images.unsplash.com/${seed}?auto=format&fit=crop&w=1600&q=80`;
+  `https://images.unsplash.com/${seed}?auto=format&fit=crop&w=1200&q=70`;
 
 export const projects: Project[] = [
   {
