@@ -21,7 +21,7 @@ export function Portfolio() {
           <span className="mb-2 hidden h-px flex-1 bg-border md:block" />
         </div>
 
-        <div className="grid gap-y-12 md:grid-cols-2 md:gap-x-8">
+        <div className="focus-grid grid gap-y-12 md:grid-cols-2 md:gap-x-8">
           {projects.map((p, i) => (
             <motion.article
               key={p.id}
@@ -36,7 +36,7 @@ export function Portfolio() {
                   src={p.cover}
                   alt={`${p.title[lang]} — ${t(`portfolio.filter.${p.category}`)}`}
                   loading="lazy"
-                  className={`w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04] ${
+                  className={`w-full object-cover grayscale-[0.65] transition-all duration-[900ms] ease-out group-hover:scale-[1.04] group-hover:grayscale-0 ${
                     i === 0 ? "h-64 md:h-[30rem]" : "h-56 md:h-72"
                   }`}
                 />

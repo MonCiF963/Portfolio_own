@@ -5,6 +5,7 @@ import { AnimatedBackground } from "@/components/site/AnimatedBackground";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
+import { CursorFX, VelocityMarquee } from "@/components/site/fx";
 import { Services } from "@/components/site/Services";
 import { Skills } from "@/components/site/Skills";
 import { Portfolio } from "@/components/site/Portfolio";
@@ -38,9 +39,11 @@ function Index() {
       <div className="relative min-h-screen overflow-x-hidden">
         <AnimatedBackground />
         <ScrollProgress />
+        <CursorFX />
         <Navbar />
         <main>
           <Hero />
+          <VelocityMarquee words={["Web", "UI/UX", "Video", "Motion", "Security"]} />
           <Services />
           <Skills />
           <Portfolio />

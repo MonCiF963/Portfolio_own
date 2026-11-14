@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n";
+import { Scramble } from "./fx";
 
 export function SectionHeader({
   eyebrow,
@@ -11,8 +14,11 @@ export function SectionHeader({
   subtitle?: string;
   className?: string;
 }) {
+  const { lang } = useI18n();
+  const [seen, setSeen] = useState(false);
   return (
     <motion.div
+      onViewportEnter={() => setSeen(true)}
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
@@ -25,8 +31,8 @@ export function SectionHeader({
           {eyebrow}
         </span>
       </div>
-      <h2 className="mt-4 font-display text-3xl uppercase leading-[1.15] tracking-[-0.025em] text-balance md:text-[3.2rem]">
-        {title}
+      <h2 className="chrome-text mt-4 font-display text-3xl uppercase leading-[1.15] tracking-[-0.025em] text-balance md:text-[3.2rem]">
+        {lang === "ar" ? title : <Scramble text={title} play={seen} />}
       </h2>
       {subtitle && (
         <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">{subtitle}</p>

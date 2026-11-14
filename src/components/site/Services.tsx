@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Code2, PenTool, Film, ArrowRight } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { useI18n } from "@/lib/i18n";
+import { Tilt } from "./fx";
 
 const services = [
   {
@@ -41,13 +42,13 @@ export function Services() {
 
         <div className="grid gap-4 md:grid-cols-12">
           {services.map((s, i) => (
+            <Tilt key={s.key} className={s.span}>
             <motion.article
-              key={s.key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className={`relative flex flex-col justify-between gap-10 overflow-hidden rounded-[1.5rem] p-8 md:p-10 ${s.span} ${s.surface}`}
+              className={`relative flex h-full flex-col justify-between gap-10 overflow-hidden rounded-[1.5rem] p-8 md:p-10 ${s.surface}`}
             >
               <div>
                 <span className="grid h-12 w-12 place-items-center rounded-sm bg-black/15">
@@ -77,6 +78,7 @@ export function Services() {
                 {s.n}
               </div>
             </motion.article>
+            </Tilt>
           ))}
         </div>
       </div>

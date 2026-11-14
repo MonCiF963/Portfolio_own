@@ -75,45 +75,45 @@
 
 :root {
   --radius: 0.25rem;
-  /* Kinetic Bento System — phosphor-green terminal on near-black. */
-  --background: oklch(0.135 0.008 160);      /* #050807 */
+  /* Aurora Bento — violet/magenta/teal/amber on deep plum. NOTE: token names (acc-green etc.) are legacy; acc-green is now the primary lilac-violet. */
+  --background: oklch(0.135 0.03 300);      /* #050807 */
   --foreground: oklch(0.99 0 0);
-  --ink: oklch(0.12 0.006 160);
-  --card: oklch(0.185 0.006 160);
+  --ink: oklch(0.12 0.035 300);
+  --card: oklch(0.185 0.035 300);
   --card-foreground: oklch(0.99 0 0);
-  --popover: oklch(0.185 0.006 160);
+  --popover: oklch(0.185 0.035 300);
   --popover-foreground: oklch(0.99 0 0);
-  --primary: oklch(0.75 0.2 148);            /* #22C55E — neon green leads */
-  --primary-foreground: oklch(0.135 0.008 160);
-  --secondary: oklch(0.24 0.006 160);
+  --primary: oklch(0.74 0.17 305);            /* #22C55E — neon green leads */
+  --primary-foreground: oklch(0.135 0.03 300);
+  --secondary: oklch(0.24 0.035 300);
   --secondary-foreground: oklch(0.99 0 0);
-  --muted: oklch(0.24 0.006 160);
-  --muted-foreground: oklch(0.7 0.008 160);
-  --accent: oklch(0.75 0.2 148);
-  --accent-foreground: oklch(0.135 0.008 160);
+  --muted: oklch(0.24 0.035 300);
+  --muted-foreground: oklch(0.7 0.03 300);
+  --accent: oklch(0.74 0.17 305);
+  --accent-foreground: oklch(0.135 0.03 300);
   --destructive: oklch(0.62 0.24 27);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.75 0.2 148);
-  --acc-green: oklch(0.75 0.2 148);          /* #22C55E */
-  --acc-cyan: oklch(0.82 0.13 202);          /* #22D3EE */
-  --acc-purple: oklch(0.62 0.22 297);        /* #8B5CF6 */
-  --acc-blue: oklch(0.62 0.19 258);
-  --acc-emerald: oklch(0.75 0.2 148);
+  --ring: oklch(0.74 0.17 305);
+  --acc-green: oklch(0.74 0.17 305);          /* #22C55E */
+  --acc-cyan: oklch(0.82 0.12 190);          /* teal */
+  --acc-purple: oklch(0.66 0.24 350);        /* magenta */
+  --acc-blue: oklch(0.62 0.2 275);
+  --acc-emerald: oklch(0.8 0.16 65);          /* amber */
   --chart-1: var(--acc-green);
   --chart-2: var(--acc-cyan);
   --chart-3: var(--acc-purple);
   --chart-4: var(--acc-blue);
   --chart-5: oklch(0.7 0 0);
-  --sidebar: oklch(0.17 0.006 160);
+  --sidebar: oklch(0.17 0.035 300);
   --sidebar-foreground: oklch(0.99 0 0);
-  --sidebar-primary: oklch(0.75 0.2 148);
-  --sidebar-primary-foreground: oklch(0.135 0.008 160);
-  --sidebar-accent: oklch(0.24 0.006 160);
+  --sidebar-primary: oklch(0.74 0.17 305);
+  --sidebar-primary-foreground: oklch(0.135 0.03 300);
+  --sidebar-accent: oklch(0.24 0.035 300);
   --sidebar-accent-foreground: oklch(0.99 0 0);
   --sidebar-border: oklch(1 0 0 / 8%);
-  --sidebar-ring: oklch(0.75 0.2 148);
+  --sidebar-ring: oklch(0.74 0.17 305);
 }
 
 .dark {
@@ -295,3 +295,26 @@
   .text-gradient-flow { animation: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- Remake effects ---------- */
+.chrome-text { background: linear-gradient(180deg, #fff 8%, #d6d0ec 52%, #8f86b3 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.mesh-text {
+  background-image: radial-gradient(60% 90% at 12% 30%, #ff8a5c, transparent 62%), radial-gradient(60% 90% at 50% 75%, #5eead4, transparent 62%), radial-gradient(70% 90% at 88% 30%, #c084fc, transparent 62%), linear-gradient(90deg, #f472b6, #a78bfa);
+  background-size: 240% 240%; animation: mesh-drift 9s ease-in-out infinite alternate;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.text-stroke { -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.5); color: transparent; }
+.mesh-orb { background: conic-gradient(from 0deg, #8b5cf6, #ff6ba8, #ffb86b, #5eead4, #8b5cf6); opacity: 0.32; animation: spin-slow 24s linear infinite; }
+.bg-dots { background-image: radial-gradient(circle, color-mix(in oklab, var(--acc-green) 70%, transparent) 1.2px, transparent 1.7px); background-size: 28px 28px; }
+.bg-dots-lit {
+  background-image: radial-gradient(circle, #fff 1.4px, transparent 2px); background-size: 28px 28px; opacity: 0.9;
+  -webkit-mask-image: radial-gradient(240px circle at var(--mx, 50%) var(--my, -20%), #000, transparent 70%);
+  mask-image: radial-gradient(240px circle at var(--mx, 50%) var(--my, -20%), #000, transparent 70%);
+}
+.grain { opacity: 0.06; mix-blend-mode: overlay; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+/* Focus-pull: hovered card stays sharp while its siblings defocus and desaturate */
+.focus-grid article { transition: filter 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.focus-grid:has(article:hover) article:not(:hover) { filter: blur(2.5px) saturate(0.3) brightness(0.8); transform: scale(0.975); }
+@keyframes mesh-drift { 0% { background-position: 0% 20%; } 100% { background-position: 100% 80%; } }
+@keyframes spin-slow { to { transform: translate(-50%, -50%) rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .mesh-text, .mesh-orb { animation: none; } }
